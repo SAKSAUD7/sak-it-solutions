@@ -32,7 +32,11 @@ export const About = () => {
             ease: "easeInOut"
           }}
           className="relative w-full aspect-[16/9] overflow-visible flex items-center justify-center"
-          style={{ transformStyle: 'preserve-3d' }}
+          style={{ 
+            transformStyle: 'preserve-3d',
+            WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black 60%, transparent 100%)',
+            maskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black 60%, transparent 100%)'
+          }}
         >
           {/* Base Layer: Gold Logo (Pushed slightly back) */}
           <motion.div 
@@ -43,6 +47,7 @@ export const About = () => {
               src="/images/logo_gold.jpg" 
               alt="360 DevRise Gold" 
               className="w-full h-full object-contain mix-blend-screen opacity-100 drop-shadow-[0_0_30px_rgba(255,215,0,0.2)]"
+              style={{ filter: 'contrast(2) brightness(0.6)' }}
             />
           </motion.div>
           
@@ -65,6 +70,7 @@ export const About = () => {
               src="/images/logo_neon.jpg" 
               alt="360 DevRise Neon" 
               className="w-full h-full object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.8)]"
+              style={{ filter: 'contrast(1.5) brightness(0.8)' }}
             />
           </motion.div>
 
