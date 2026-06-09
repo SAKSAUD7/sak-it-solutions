@@ -54,6 +54,10 @@ export const ServiceDetail = () => {
   // Related services (other 3)
   const related = services.filter(s => s.id !== id).slice(0, 3);
 
+  // Next Service Logic
+  const currentIndex = services.findIndex(s => s.id === id);
+  const nextService = services[(currentIndex + 1) % services.length];
+
   useEffect(() => { window.scrollTo(0, 0); }, [id]);
 
   if (!service) {
@@ -89,9 +93,17 @@ export const ServiceDetail = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-24 pt-36">
-          <Link to="/" className="inline-flex items-center gap-2 mb-8 text-xs uppercase tracking-widest font-bold text-gray-500 hover:text-white transition-colors">
-            <ArrowLeft size={14} /> All Services
-          </Link>
+          <div className="flex items-center justify-between w-full mb-8">
+            <Link to="/" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-gray-500 hover:text-white transition-colors">
+              <ArrowLeft size={14} /> All Services
+            </Link>
+            
+            {nextService && (
+              <Link to={`/services/${nextService.id}`} className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-primary hover:text-white transition-colors">
+                Next Service <ArrowRight size={14} />
+              </Link>
+            )}
+          </div>
 
           {/* Icon */}
           <div className={`mb-8 w-20 h-20 rounded-3xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-2xl`}>
@@ -189,6 +201,63 @@ export const ServiceDetail = () => {
               />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Execution Flow & Tech Stack ───────────────────── */}
+      <section className="py-24 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: '#030305' }}>
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-4">Execution Roadmap</h2>
+            <h3 className="font-heading text-4xl sm:text-5xl font-black uppercase">How It <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Works</span></h3>
+          </div>
+
+          {/* Flow Diagram */}
+          <div className="relative mb-24">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-[50%] left-[10%] right-[10%] h-[2px] bg-white/5 -translate-y-1/2 z-0" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+              {steps.map((step, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  className="flex flex-col items-center text-center group"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-[#0a0a0f] border border-white/10 flex items-center justify-center font-heading font-black text-2xl text-white/50 mb-6 group-hover:border-primary/50 group-hover:text-primary transition-all group-hover:shadow-[0_0_30px_rgba(108,99,255,0.2)] group-hover:scale-110 duration-300">
+                    0{index + 1}
+                  </div>
+                  <h4 className="text-sm font-bold text-white uppercase tracking-widest leading-relaxed px-4">{step}</h4>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tech Stack */}
+          {techs && techs.length > 0 && (
+            <div className="pt-16 border-t border-white/5 text-center">
+              <h2 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-8">What's Needed (Tech Stack)</h2>
+              <div className="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto">
+                {techs.map((tech, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-gray-300 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all"
+                  >
+                    {tech}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

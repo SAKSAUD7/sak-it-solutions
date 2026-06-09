@@ -7,7 +7,7 @@ export const QuoteModal = ({ isOpen, onClose }) => {
     name: '',
     contact: '',
     service: 'Web Development',
-    budget: '$1,000 - $5,000',
+    companyName: '',
     details: ''
   });
 
@@ -15,7 +15,7 @@ export const QuoteModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     
     // Construct WhatsApp message
-    const text = `*New Project Inquiry* 🚀\n\n*Name:* ${formData.name}\n*Contact:* ${formData.contact}\n*Service Needed:* ${formData.service}\n*Budget:* ${formData.budget}\n\n*Details:* ${formData.details}`;
+    const text = `*New Project Inquiry* 🚀\n\n*Name:* ${formData.name}\n*Company:* ${formData.companyName}\n*Contact:* ${formData.contact}\n*Service Needed:* ${formData.service}\n\n*Details:* ${formData.details}`;
     const encodedText = encodeURIComponent(text);
     
     // Redirect to WhatsApp
@@ -104,17 +104,14 @@ export const QuoteModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Estimated Budget</label>
-                  <select 
-                    value={formData.budget}
-                    onChange={e => setFormData({...formData, budget: e.target.value})}
-                    className="w-full bg-[#111116] border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-primary/50 transition-colors appearance-none"
-                  >
-                    <option>$1,000 - $5,000</option>
-                    <option>$5,000 - $15,000</option>
-                    <option>$15,000 - $50,000</option>
-                    <option>$50,000+</option>
-                  </select>
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Company / Brand Name</label>
+                  <input 
+                    type="text" 
+                    value={formData.companyName}
+                    onChange={e => setFormData({...formData, companyName: e.target.value})}
+                    className="w-full bg-[#111116] border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-primary/50 transition-colors"
+                    placeholder="Acme Corp"
+                  />
                 </div>
 
                 <div className="space-y-1.5">

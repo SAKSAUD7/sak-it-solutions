@@ -12,7 +12,7 @@ export const services = [
     longDesc: "First impressions are everything. We build lightning-fast, highly aesthetic static websites designed to convert visitors into leads. Using modern frameworks like React and Next.js (SSG), we guarantee perfect Lighthouse scores, ensuring your site ranks higher on Google and provides a flawless experience across all devices.",
     features: ["Sub-second Load Times", "Perfect Google Lighthouse Scores", "Responsive Mobile-First Design", "Basic SEO Setup", "Contact Form Integrations"],
     color: "from-blue-500 to-cyan-400",
-    mediaImage: "/images/gallery/1.png",
+    mediaImage: "/images/gallery/service_web_static.png",
     metrics: [
       { label: "Avg Load Time", value: "< 0.8s" },
       { label: "Lighthouse Score", value: "100/100" },
@@ -42,7 +42,7 @@ export const services = [
     longDesc: "When a static site isn't enough, we build dynamic web applications that react in real-time. Whether it's an e-commerce storefront, a booking platform, or a custom CMS, we engineer interactive interfaces powered by headless CMS architectures and REST/GraphQL APIs.",
     features: ["User Authentication", "Real-Time Databases", "Payment Gateway Integration", "Dynamic Content Management", "Third-Party API Integrations"],
     color: "from-indigo-500 to-purple-500",
-    mediaImage: "/images/gallery/2.jpg",
+    mediaImage: "/images/gallery/service_web_dynamic.png",
     metrics: [
       { label: "Uptime SLA", value: "99.9%" },
       { label: "API Response", value: "< 200ms" },
@@ -71,7 +71,7 @@ export const services = [
     longDesc: "We architect and scale multi-tenant SaaS products built for enterprise requirements. From complex role-based access control (RBAC) to microservices architecture, we ensure your platform is secure, compliant, and capable of handling millions of concurrent requests without breaking a sweat.",
     features: ["Multi-Tenant Architecture", "Microservices & Docker", "Advanced Role-Based Access Control", "Data Encryption & Compliance", "Automated CI/CD Pipelines"],
     color: "from-emerald-500 to-teal-400",
-    mediaImage: "/images/gallery/3.jpg",
+    mediaImage: "/images/gallery/service_web_saas.png",
     metrics: [
       { label: "Concurrent Users", value: "10k+" },
       { label: "Deployments", value: "Zero Downtime" },
@@ -102,7 +102,7 @@ export const services = [
     longDesc: "We build native iOS applications using Swift that take full advantage of Apple's hardware and software ecosystem. From flawless ARKit integrations to smooth CoreAnimation transitions, we deliver an uncompromised, premium experience for iPhone and iPad users.",
     features: ["Swift & SwiftUI", "Apple HealthKit & ARKit", "Native Push Notifications", "Strict App Store Compliance"],
     color: "from-slate-600 to-slate-400",
-    mediaImage: "/images/gallery/4.png",
+    mediaImage: "/images/gallery/service_app_ios.png",
     metrics: [
       { label: "App Store Approval", value: "100%" },
       { label: "Crash-Free Rate", value: "99.8%" },
@@ -128,7 +128,7 @@ export const services = [
     longDesc: "Reach billions of users with a native Android application built in Kotlin. We handle the fragmentation of the Android ecosystem, ensuring your app runs perfectly on thousands of different devices, screen sizes, and OS versions without performance drops.",
     features: ["Kotlin Architecture", "Material Design System", "Google Play Services", "Hardware Optimization"],
     color: "from-green-500 to-emerald-400",
-    mediaImage: "/images/gallery/5.png",
+    mediaImage: "/images/gallery/service_app_android.png",
     metrics: [
       { label: "Device Coverage", value: "12,000+" },
       { label: "Play Store Ready", value: "Yes" },
@@ -154,7 +154,7 @@ export const services = [
     longDesc: "Maximize your ROI by developing cross-platform mobile applications. Using React Native and Flutter, we build single-codebase apps that compile natively to both iOS and Android. It cuts development time and cost in half while maintaining 95% of the performance of a pure native app.",
     features: ["React Native & Flutter", "Unified Codebase", "Faster Time-to-Market", "Over-The-Air (OTA) Updates"],
     color: "from-pink-500 to-rose-400",
-    mediaImage: "/images/gallery/6.jpg",
+    mediaImage: "/images/gallery/service_app_cross.png",
     metrics: [
       { label: "Code Reusability", value: "~90%" },
       { label: "Time Saved", value: "40%" },
@@ -186,7 +186,7 @@ export const services = [
     longDesc: "We don't just guess; we reverse-engineer search algorithms. Our technical SEO services dive deep into site architecture, schema markup, core web vitals, and programmatic content generation to ensure your digital platform becomes an organic lead-generation machine.",
     features: ["Comprehensive SEO Audit", "Advanced Schema Markup", "Programmatic SEO", "Backlink Strategy", "Competitor Gap Analysis"],
     color: "from-orange-500 to-yellow-400",
-    mediaImage: "/images/gallery/7.jpg",
+    mediaImage: "/images/gallery/service_web_dynamic.png",
     metrics: [
       { label: "Organic Traffic", value: "+250%" },
       { label: "Domain Rating", value: "Increased" },
@@ -216,7 +216,7 @@ export const services = [
     longDesc: "Attention is the new currency. We build and execute high-impact social media strategies designed to capture attention and build authority. From high-production video reels to thought-leadership LinkedIn posts, we make your brand impossible to ignore.",
     features: ["Content Calendar Management", "Short-Form Video Production", "Community Management", "Brand Voice Architecture"],
     color: "from-red-500 to-rose-400",
-    mediaImage: "/images/gallery/2.jpg",
+    mediaImage: "/images/gallery/service_web_static.png",
     metrics: [
       { label: "Engagement Rate", value: "+150%" },
       { label: "Follower Growth", value: "Organic" },
@@ -242,7 +242,7 @@ export const services = [
     longDesc: "Stop burning money on ineffective ads. We run aggressive, highly-targeted Pay-Per-Click campaigns across Google, Meta, and LinkedIn. By utilizing advanced pixel tracking and conversion APIs, we track exactly how much revenue every ad dollar generates.",
     features: ["Google Search & Display Ads", "Meta (Facebook/IG) Ads", "LinkedIn B2B Lead Gen", "A/B Multivariate Testing", "Conversion API Setup"],
     color: "from-cyan-500 to-blue-500",
-    mediaImage: "/images/gallery/3.jpg",
+    mediaImage: "/images/gallery/service_web_saas.png",
     metrics: [
       { label: "Target ROAS", value: "3x - 8x" },
       { label: "CPA Reduction", value: "-40%" },
@@ -273,7 +273,7 @@ export const services = [
     longDesc: "Transform your WhatsApp Business account into a 24/7 sales machine. We build custom conversational AI agents powered by GPT-4 and Claude that actually understand context, answer complex FAQs, qualify leads, and book appointments directly inside WhatsApp.",
     features: ["LLM Integration (GPT-4/Claude)", "Custom Knowledge Base Training", "Human Handoff Protocols", "WhatsApp Business API Setup", "Automated Appointment Booking"],
     color: "from-green-400 to-emerald-600",
-    mediaImage: "/images/gallery/1.png",
+    mediaImage: "/images/gallery/service_app_ios.png",
     metrics: [
       { label: "Response Time", value: "< 2s" },
       { label: "Resolution Rate", value: "85%" },
@@ -302,7 +302,7 @@ export const services = [
     longDesc: "Stop doing manual data entry. We architect complex, multi-step automation workflows using Make.com, Zapier, and custom webhooks. We connect your CRM, email, payment gateways, and databases so your business runs on autopilot.",
     features: ["Zapier / Make.com Architecture", "Custom API Webhooks", "CRM Syncing", "Invoice Automation", "Error Handling & Logging"],
     color: "from-orange-400 to-red-500",
-    mediaImage: "/images/gallery/2.jpg",
+    mediaImage: "/images/gallery/service_app_android.png",
     metrics: [
       { label: "Manual Hours Saved", value: "400+" },
       { label: "Data Accuracy", value: "100%" },
@@ -330,7 +330,7 @@ export const services = [
     longDesc: "When Calendly or standard booking software doesn't fit your business model, we build custom scheduling engines. We implement dynamic availability, complex service routing, deposit payments, and deep Google Calendar sync, all wrapped in a premium UI.",
     features: ["Dynamic Calendar Sync", "Timezone Management", "Stripe Deposit Integration", "Automated SMS/Email Reminders", "Staff Availability Routing"],
     color: "from-blue-400 to-indigo-500",
-    mediaImage: "/images/gallery/3.jpg",
+    mediaImage: "/images/gallery/service_app_cross.png",
     metrics: [
       { label: "No-Show Reduction", value: "-60%" },
       { label: "Booking Speed", value: "< 30s" },
@@ -356,7 +356,7 @@ export const services = [
     longDesc: "For brands doing high volume, a slow site kills revenue. We build headless e-commerce architectures using Next.js/React on the frontend and Shopify Plus or custom databases on the backend. This delivers instant page loads and unparalleled UX.",
     features: ["Next.js Commerce", "Shopify Storefront API", "Sub-second Product Loads", "Advanced Filtering & Search", "Custom Cart Experiences"],
     color: "from-pink-400 to-rose-500",
-    mediaImage: "/images/gallery/4.png",
+    mediaImage: "/images/gallery/service_web_static.png",
     metrics: [
       { label: "Page Load Time", value: "< 1s" },
       { label: "Conversion Rate", value: "+35%" },
@@ -384,7 +384,7 @@ export const services = [
     longDesc: "Generic software forces you to change how your business runs. We build custom ERP and CRM dashboards that adapt to you. Manage your team, track complex logistics, and visualize data securely on a platform you own 100%.",
     features: ["Custom Data Visualization", "Complex Role & Permission Systems", "Logistics & Inventory Tracking", "API Aggregation", "Export & Reporting Tools"],
     color: "from-purple-400 to-fuchsia-500",
-    mediaImage: "/images/gallery/5.png",
+    mediaImage: "/images/gallery/service_web_saas.png",
     metrics: [
       { label: "Operational Efficiency", value: "+80%" },
       { label: "Data Security", value: "Enterprise" },

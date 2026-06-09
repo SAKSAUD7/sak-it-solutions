@@ -55,7 +55,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mt-20">
+      <div className="relative z-10 max-w-5xl mt-40 md:mt-20 pb-32 md:pb-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
