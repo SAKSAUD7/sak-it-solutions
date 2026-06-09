@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, MessageCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
@@ -7,10 +7,19 @@ import { MagneticButton } from '../components/ui/MagneticButton';
 export const Contact = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    projectType: 'Web Development',
+    details: ''
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // This is a UI demo for the form
-    alert("Message feature in development. Please use WhatsApp for immediate response!");
+    const text = `*New Contact Form Inquiry* 🚀\n\n*Name:* ${formData.firstName} ${formData.lastName}\n*Email:* ${formData.email}\n*Service Needed:* ${formData.projectType}\n\n*Details:* ${formData.details}`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/917411091256?text=${encodedText}`, '_blank');
   };
 
   return (
@@ -140,22 +149,22 @@ export const Contact = () => {
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs uppercase tracking-widest font-bold text-gray-500">First Name</label>
-                  <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors" placeholder="John" />
+                  <input required type="text" value={formData.firstName} onChange={e => setFormData({...formData, firstName: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors" placeholder="John" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs uppercase tracking-widest font-bold text-gray-500">Last Name</label>
-                  <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors" placeholder="Doe" />
+                  <input required type="text" value={formData.lastName} onChange={e => setFormData({...formData, lastName: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors" placeholder="Doe" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest font-bold text-gray-500">Email Address</label>
-                <input required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors" placeholder="john@company.com" />
+                <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors" placeholder="john@company.com" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest font-bold text-gray-500">Project Type</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none">
+                <select value={formData.projectType} onChange={e => setFormData({...formData, projectType: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none">
                   <option className="bg-black">Web Development</option>
                   <option className="bg-black">Mobile App Development</option>
                   <option className="bg-black">Digital Marketing / SEO</option>
@@ -165,7 +174,7 @@ export const Contact = () => {
 
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest font-bold text-gray-500">Project Details</label>
-                <textarea required rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Tell us about your project goals, timeline, and budget..."></textarea>
+                <textarea required rows={4} value={formData.details} onChange={e => setFormData({...formData, details: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Tell us about your project goals, timeline, and budget..."></textarea>
               </div>
 
               <button type="submit" className="w-full rounded-xl bg-white text-black px-6 py-4 font-bold text-sm uppercase tracking-widest hover:bg-gray-200 transition-all flex items-center justify-center gap-2 group">

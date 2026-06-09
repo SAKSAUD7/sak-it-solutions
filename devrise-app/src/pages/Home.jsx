@@ -14,8 +14,11 @@ const CountUp = CountUpModule.default || CountUpModule;
 import { services } from '../data/services';
 import { projects } from '../data/projects';
 import { HowItWorks } from '../components/HowItWorks';
+import { QuoteModal } from '../components/QuoteModal';
 
 const Hero = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center">
       {/* Animated Aurora Background */}
@@ -88,11 +91,13 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="flex flex-wrap items-center justify-center gap-6"
         >
-          <a href="#work" className="group relative rounded-full bg-white text-black px-10 py-5 font-bold uppercase tracking-widest text-sm transition-all hover:scale-105 hover:bg-gray-200 overflow-hidden">
+          <button onClick={() => setIsQuoteOpen(true)} className="group relative rounded-full bg-white text-black px-10 py-5 font-bold uppercase tracking-widest text-sm transition-all hover:scale-105 hover:bg-gray-200 overflow-hidden cursor-pointer">
             <span className="relative z-10">Start a Project</span>
-          </a>
+          </button>
         </motion.div>
       </div>
+      
+      <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
       
       {/* Marquee Banner at bottom of hero */}
       <div className="absolute bottom-0 w-full overflow-hidden border-y border-white/10 bg-black/50 backdrop-blur-md py-4">

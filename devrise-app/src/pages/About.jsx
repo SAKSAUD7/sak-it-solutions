@@ -74,6 +74,12 @@ export const About = () => {
         </div>
       </section>
 
+      {/* How It Works Component */}
+      <HowItWorks 
+        title="Our Execution Roadmap" 
+        subtitle="How we turn your vision into a highly-scalable digital product."
+      />
+
       {/* Stats Section */}
       <section className="px-6 py-16 border-y border-white/5 bg-[#030305]">
         <div className="max-w-7xl mx-auto">
@@ -173,12 +179,6 @@ export const About = () => {
           </div>
         </div>
       </section>
-
-      {/* How It Works Component */}
-      <HowItWorks 
-        title="Our Execution Roadmap" 
-        subtitle="How we turn your vision into a highly-scalable digital product."
-      />
 
     </motion.div>
   );

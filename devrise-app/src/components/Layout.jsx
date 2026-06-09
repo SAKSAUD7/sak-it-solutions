@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { ChevronDown, MessageCircle, MapPin, Phone, Mail, Globe, GitBranch } from 'lucide-react';
+import { ChevronDown, MessageCircle, MapPin, Phone, Mail, Globe, GitBranch, Menu, X } from 'lucide-react';
 import { CustomCursor } from './ui/CustomCursor';
 import { MagneticButton } from './ui/MagneticButton';
 import { services } from '../data/services';
@@ -10,6 +10,7 @@ import { services } from '../data/services';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -23,7 +24,8 @@ const Navbar = () => {
   const categories = [...new Set(services.map(s => s.category))];
 
   return (
-    <div className="flex justify-center w-full fixed top-6 z-50 px-6 pointer-events-none">
+    <>
+    <div className="flex justify-center w-full fixed top-6 z-50 px-4 md:px-6 pointer-events-none">
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -33,8 +35,10 @@ const Navbar = () => {
         }`}
       >
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="360 DevRise" className="h-12 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+          <img src="/logo.png" alt="360 DevRise" className="h-10 md:h-12 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
         </Link>
+        
+        {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-8 bg-white/5 px-8 py-3 rounded-full border border-white/5">
           <Link to="/" className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Home</Link>
           <Link to="/about" className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">About</Link>
@@ -84,11 +88,69 @@ const Navbar = () => {
           <a href={isHome ? "#work" : "/#work"} className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Work</a>
           <Link to="/contact" className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Contact</Link>
         </div>
-        <MagneticButton href="https://wa.me/917411091256" className="rounded-full bg-white text-black px-6 py-2 text-xs uppercase tracking-widest font-bold hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-          Let's Talk
-        </MagneticButton>
+        <div className="flex items-center gap-4">
+          <MagneticButton href="https://wa.me/917411091256" className="hidden sm:flex rounded-full bg-white text-black px-6 py-2 text-xs uppercase tracking-widest font-bold hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            Let's Talk
+          </MagneticButton>
+          
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="lg:hidden w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/10"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <Menu size={20} />
+          </button>
+        </div>
       </motion.nav>
     </div>
+
+    {/* Mobile Fullscreen Menu */}
+    <AnimatePresence>
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="fixed inset-0 z-[100] bg-[#030305]/95 backdrop-blur-2xl flex flex-col p-6"
+        >
+          <div className="flex items-center justify-between mb-12">
+            <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+              <img src="/logo.png" alt="360 DevRise" className="h-10 object-contain" />
+            </Link>
+            <button 
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/10"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <X size={20} />
+            </button>
+          </div>
+          
+          <div className="flex flex-col gap-6 overflow-y-auto pb-20">
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Home</Link>
+            <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">About</Link>
+            
+            <div className="border-b border-white/10 pb-4">
+              <span className="text-sm font-bold uppercase tracking-widest text-primary mb-4 block">Services</span>
+              <div className="grid grid-cols-1 gap-3 pl-4">
+                {services.map(s => (
+                  <Link key={s.id} to={`/services/${s.id}`} onClick={() => setMobileMenuOpen(false)} className="text-lg text-gray-400 font-bold uppercase tracking-wider hover:text-white">
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <a href={isHome ? "#work" : "/#work"} onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Work</a>
+            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Contact</Link>
+            
+            <a href="https://wa.me/917411091256" className="mt-8 rounded-full bg-white text-black py-4 text-center font-bold uppercase tracking-widest text-sm">
+              Let's Talk on WhatsApp
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 };
 
