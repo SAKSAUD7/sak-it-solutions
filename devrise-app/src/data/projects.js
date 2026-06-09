@@ -1,5 +1,74 @@
 export const projects = [
   {
+    id: "7chats-platform",
+    title: "7Chats AI Platform",
+    category: "Full Stack & AI",
+    short: "An all-in-one social platform and AI-powered chatbot ecosystem for everyday tasks and global connectivity.",
+    description: `7Chats is a multifaceted digital platform combining a global social network with a suite of intelligent AI chatbots. The platform serves two primary functions: a seamless social environment to connect with friends globally, and a powerful AI ecosystem designed to save time and deliver instant results.
+
+Users can access specialized AI bots for diverse tasks ranging from trading card appraisals and utility bill reviews to lead generation and lottery insights. The platform features robust mobile applications alongside a comprehensive web portal, ensuring seamless accessibility across all devices.`,
+    features: [
+      "Global Social Networking & Real-time Messaging",
+      "Suite of Specialized AI Chatbots (Appraisals, Analytics, etc.)",
+      "Custom AI Bot Creation Tools for Personalized Use",
+      "Cross-Platform Availability (Web, iOS, Android)",
+      "Secure User Authentication & Profile Management",
+      "Market Indicators & Lead Generation Modules"
+    ],
+    techStack: {
+      frontend: ["React.js", "React Native", "Tailwind CSS"],
+      backend: ["Node.js", "Python (AI Models)"],
+      database: ["PostgreSQL", "Redis"],
+      other: ["OpenAI API", "WebSockets", "AWS"]
+    },
+    roles: ["Full Stack Engineer", "AI Integration Specialist"],
+    links: { live: "https://7chats.com/" },
+    tags: ["React", "AI", "Social", "React Native", "Python"],
+    image: "/images/gallery/7chats-1.png",
+    gallery: [
+      "/images/gallery/7chats-1.png",
+      "/images/gallery/7chats-2.png",
+      "/images/gallery/7chats-3.png",
+      "/images/gallery/7chats-4.jpg",
+      "/images/gallery/7chats-5.jpg"
+    ],
+    emoji: "🤖"
+  },
+  {
+    id: "stravion-construction",
+    title: "Stravion Construction",
+    category: "Full Stack",
+    short: "A world-class, cinematic, and highly responsive luxury construction platform built with GSAP and React.",
+    description: `Stravion Construction Group required a premium digital presence that reflected their high-end, Midlands-based construction services. This project involved building a cinematic single-page application with advanced GSAP animations, a custom preloader, and smooth Lenis scrolling.
+
+The result is a highly responsive, luxury digital experience designed to instantly build trust and drive high-value client inquiries. Every interaction is carefully choreographed to deliver a true "wow" factor while maintaining perfect performance.`,
+    features: [
+      "Cinematic GSAP Text Reveals & Preloader",
+      "Premium Matte Black & Rich Gold UI Design System",
+      "Lenis Smooth Scrolling Engine Integration",
+      "High-Performance Video Backgrounds & Parallax Effects",
+      "Responsive Grid Layouts & Mobile-Optimized Navigation",
+      "WhatsApp Integration & Custom Inquiry Forms"
+    ],
+    techStack: {
+      frontend: ["React.js", "Vite", "Tailwind CSS"],
+      backend: ["Node.js (API)"],
+      database: ["PostgreSQL"],
+      other: ["GSAP", "Lenis Scroll", "Framer Motion"]
+    },
+    roles: ["Frontend Engineer", "UI/UX Animator"],
+    links: { live: "https://www.stravion.co.uk/" },
+    tags: ["React", "GSAP", "Tailwind", "Animation", "Luxury"],
+    image: "/images/gallery/stravion-1.png",
+    gallery: [
+      "/images/gallery/stravion-1.png",
+      "/images/gallery/stravion-2.png",
+      "/images/gallery/stravion-3.png",
+      "/images/gallery/stravion-4.png"
+    ],
+    emoji: "🏗️"
+  },
+  {
     id: "ninja-park",
     title: "Booking & Management System",
     category: "Full Stack",

@@ -11,7 +11,7 @@ import Tilt from 'react-parallax-tilt';
 import CountUpModule from 'react-countup';
 const CountUp = CountUpModule.default || CountUpModule;
 
-import { services } from '../data/services';
+import { services } from '../data/services.jsx';
 import { projects } from '../data/projects';
 import { HowItWorks } from '../components/HowItWorks';
 import { QuoteModal } from '../components/QuoteModal';
@@ -246,7 +246,7 @@ const BentoServicesSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/services/web-design" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white hover:text-primary transition-colors border-b border-white/20 pb-1">
+          <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white hover:text-primary transition-colors border-b border-white/20 pb-1">
             View All Services <ArrowUpRight size={16} />
           </Link>
         </div>
@@ -439,16 +439,16 @@ const ProjectsCarousel = () => {
                       <div className="w-full h-full flex items-center justify-center text-8xl bg-gradient-to-br from-[#0f0f1a] to-[#1a1a2e]">{project.emoji}</div>
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <div className="mb-2 text-xs font-bold uppercase tracking-widest text-blue-400">{project.category}</div>
-                      <h3 className="text-2xl font-bold font-heading text-white uppercase">{project.title}</h3>
+                    <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                      <div className="mb-1 sm:mb-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-blue-400">{project.category}</div>
+                      <h3 className="text-xl sm:text-2xl font-bold font-heading text-white uppercase leading-tight">{project.title}</h3>
                     </div>
                   </div>
-                  <div className="p-6 bg-[#0a0a12] border-t border-white/5">
-                    <p className="mb-6 text-sm text-gray-400 leading-relaxed">{project.short}</p>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="p-4 sm:p-6 bg-[#0a0a12] border-t border-white/5">
+                    <p className="mb-4 sm:mb-6 text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-3">{project.short}</p>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {project.tags.slice(0, 3).map((tag, j) => (
-                        <span key={j} className="rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-xs font-medium text-blue-300 uppercase tracking-wider">
+                        <span key={j} className="rounded-full bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-xs font-medium text-blue-300 uppercase tracking-widest leading-none flex items-center justify-center">
                           {tag}
                         </span>
                       ))}

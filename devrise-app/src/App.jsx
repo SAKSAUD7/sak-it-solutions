@@ -8,14 +8,16 @@ import { ServiceDetail } from './pages/ServiceDetail';
 import { ProjectDetail } from './pages/ProjectDetail';
 import { Contact } from './pages/Contact';
 import { About } from './pages/About';
+import { Work } from './pages/Work';
+import { Services } from './pages/Services';
 
 const Preloader = ({ onComplete }) => {
   const [loadingText, setLoadingText] = useState('Initiating Systems...');
 
   useEffect(() => {
-    const t1 = setTimeout(() => setLoadingText('Compiling Architecture...'), 1000);
-    const t2 = setTimeout(() => setLoadingText('Engineering Digital Dominance...'), 2000);
-    const t3 = setTimeout(() => onComplete(), 3500);
+    const t1 = setTimeout(() => setLoadingText('Compiling Architecture...'), 400);
+    const t2 = setTimeout(() => setLoadingText('Engineering Digital Dominance...'), 800);
+    const t3 = setTimeout(() => onComplete(), 1500);
     
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [onComplete]);
@@ -95,7 +97,13 @@ const ScrollToTop = () => {
 };
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // Only show preloader once per browser session
+  const [loading, setLoading] = useState(() => !sessionStorage.getItem('preloaderShown'));
+
+  const handlePreloaderComplete = () => {
+    sessionStorage.setItem('preloaderShown', 'true');
+    setLoading(false);
+  };
 
   return (
     <BrowserRouter>
@@ -103,7 +111,7 @@ function App() {
       <div className="min-h-screen bg-background text-gray-200 font-sans selection:bg-primary/30 selection:text-white relative">
         <div className="noise-bg" />
         <AnimatePresence>
-          {loading && <Preloader onComplete={() => setLoading(false)} />}
+          {loading && <Preloader onComplete={handlePreloaderComplete} />}
         </AnimatePresence>
 
         {!loading && (
@@ -111,9 +119,11 @@ function App() {
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/services" element={<Services />} />
                 <Route path="/services/:id" element={<ServiceDetail />} />
                 <Route path="/projects/:id" element={<ProjectDetail />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/work" element={<Work />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
             </AnimatePresence>

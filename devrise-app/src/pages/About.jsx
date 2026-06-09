@@ -186,7 +186,7 @@ export const About = () => {
       </section>
 
       {/* Founders Section */}
-      <section className="py-32 px-6 relative overflow-hidden">
+      <section className="py-16 md:py-32 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full -translate-y-1/2 pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -240,7 +240,7 @@ export const About = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-32 px-6 bg-[#030305] border-t border-white/5 relative">
+      <section className="py-16 md:py-32 px-6 bg-[#030305] border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="font-heading text-4xl sm:text-5xl font-black uppercase">Core <span className="text-primary">Values</span></h2>

@@ -28,7 +28,7 @@ export const Contact = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden"
+      className="min-h-screen pt-24 md:pt-32 pb-16 md:pb-20 px-6 relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #030308 0%, #06091a 50%, #030308 100%)' }}
     >
       <Helmet>
@@ -44,7 +44,7 @@ export const Contact = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-12 md:mb-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-heading text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight"
+            className="font-heading text-4xl sm:text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight"
           >
             Build with <br /><span className="text-transparent" style={{ WebkitTextStroke: '2px white' }}>360 DevRise</span>
           </motion.h1>
@@ -70,7 +70,7 @@ export const Contact = () => {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16">
           
           {/* Direct Contacts */}
           <div className="space-y-8">

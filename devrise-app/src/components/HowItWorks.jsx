@@ -146,8 +146,8 @@ export const HowItWorks = ({ title = "How We Build Your Product", subtitle = "Fr
         {/* Flow Diagram */}
         <div className="grid lg:grid-cols-[380px_1fr] gap-8 items-start">
 
-          {/* Left: Step List */}
-          <div className="space-y-2 sticky top-32">
+          {/* Left: Step List (Hidden on mobile to save space) */}
+          <div className="hidden lg:block space-y-2 sticky top-32">
             {steps.map((step, i) => (
               <motion.button
                 key={i}
@@ -211,17 +211,17 @@ export const HowItWorks = ({ title = "How We Build Your Product", subtitle = "Fr
                   {/* Top gradient bar */}
                   <div className={`h-1.5 w-full bg-gradient-to-r ${step.color}`} />
 
-                  <div className="p-10">
+                  <div className="p-6 md:p-10">
                     {/* Step Header */}
-                    <div className="flex items-start gap-6 mb-10">
-                      <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-2xl flex-shrink-0`}
+                    <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-8 md:mb-10">
+                      <div className={`w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-2xl flex-shrink-0`}
                         style={{ boxShadow: `0 10px 40px ${step.glow}` }}
                       >
-                        {React.cloneElement(step.icon, { size: 36 })}
+                        {React.cloneElement(step.icon, { className: "w-6 h-6 md:w-9 md:h-9" })}
                       </div>
                       <div>
-                        <div className="text-xs font-black uppercase tracking-[0.3em] text-gray-500 mb-2">Step {step.num}</div>
-                        <h3 className="font-heading text-3xl font-black uppercase mb-1">{step.title}</h3>
+                        <div className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-gray-500 mb-1 md:mb-2">Step {step.num}</div>
+                        <h3 className="font-heading text-2xl md:text-3xl font-black uppercase mb-1">{step.title}</h3>
                         <p className={`text-sm font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r ${step.color}`}>
                           {step.subtitle}
                         </p>
@@ -229,13 +229,13 @@ export const HowItWorks = ({ title = "How We Build Your Product", subtitle = "Fr
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-300 text-lg leading-relaxed mb-10 border-l-2 border-primary/30 pl-6">
+                    <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8 md:mb-10 border-l-2 border-primary/30 pl-4 md:pl-6">
                       {step.desc}
                     </p>
 
                     {/* Deliverables */}
                     <div>
-                      <div className="text-xs font-black uppercase tracking-[0.3em] text-gray-500 mb-5">
+                      <div className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-gray-500 mb-4 md:mb-5">
                         {step.optional ? 'Includes' : 'Deliverables & Tools'}
                       </div>
                       <div className="flex flex-wrap gap-3">
@@ -245,7 +245,7 @@ export const HowItWorks = ({ title = "How We Build Your Product", subtitle = "Fr
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: j * 0.06 }}
-                            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-300 hover:border-primary/30 hover:text-white transition-colors"
+                            className="flex items-center gap-1.5 md:gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-gray-300 hover:border-primary/30 hover:text-white transition-colors"
                           >
                             <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${step.color} flex-shrink-0`} />
                             {tag}
@@ -266,21 +266,21 @@ export const HowItWorks = ({ title = "How We Build Your Product", subtitle = "Fr
                     )}
 
                     {/* Navigation */}
-                    <div className="mt-10 flex items-center justify-between pt-8 border-t border-white/5">
+                    <div className="mt-8 md:mt-10 flex items-center justify-between pt-6 md:pt-8 border-t border-white/5">
                       <button
                         onClick={() => setActiveStep(Math.max(0, i - 1))}
                         disabled={i === 0}
-                        className="px-6 py-3 rounded-xl border border-white/10 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:border-white/30 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                        className="px-3 py-2 md:px-6 md:py-3 rounded-xl border border-white/10 text-[10px] md:text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-white hover:border-white/30 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                       >
-                        ← Previous
+                        ← Prev
                       </button>
-                      <span className="text-xs text-gray-600 font-bold uppercase tracking-widest">
+                      <span className="text-[10px] md:text-xs text-gray-600 font-bold uppercase tracking-widest">
                         {i + 1} / {steps.length}
                       </span>
                       <button
                         onClick={() => setActiveStep(Math.min(steps.length - 1, i + 1))}
                         disabled={i === steps.length - 1}
-                        className={`px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-widest transition-all disabled:opacity-30 disabled:cursor-not-allowed ${
+                        className={`px-3 py-2 md:px-6 md:py-3 rounded-xl text-[10px] md:text-sm font-bold uppercase tracking-widest transition-all disabled:opacity-30 disabled:cursor-not-allowed ${
                           i < steps.length - 1
                             ? `bg-gradient-to-r ${step.color} text-white shadow-lg`
                             : 'border border-white/10 text-gray-400'

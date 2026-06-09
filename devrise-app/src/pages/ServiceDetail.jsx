@@ -92,7 +92,7 @@ export const ServiceDetail = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#040408] via-[#040408]/80 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-24 pt-36">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-16 pt-28 md:py-24 md:pt-36">
           <div className="flex items-center justify-between w-full mb-8">
             <Link to="/" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-gray-500 hover:text-white transition-colors">
               <ArrowLeft size={14} /> All Services
@@ -144,7 +144,7 @@ export const ServiceDetail = () => {
       </section>
 
       {/* ── Media Showcase & Technical Deep Dive ─────────── */}
-      <section className="py-24 px-6 border-t border-white/5 overflow-hidden relative" style={{ background: 'linear-gradient(180deg, #040408 0%, #07091a 100%)' }}>
+      <section className="py-16 md:py-24 px-6 border-t border-white/5 overflow-hidden relative" style={{ background: 'linear-gradient(180deg, #040408 0%, #07091a 100%)' }}>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[130px] rounded-full -translate-y-1/2 pointer-events-none" />
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -197,7 +197,7 @@ export const ServiceDetail = () => {
               <img
                 src={service.mediaImage || "/images/gallery/1.png"}
                 alt={service.title}
-                className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[300px] md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
           </div>
@@ -205,7 +205,7 @@ export const ServiceDetail = () => {
       </section>
 
       {/* ── Execution Flow & Tech Stack ───────────────────── */}
-      <section className="py-24 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: '#030305' }}>
+      <section className="py-16 md:py-24 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: '#030305' }}>
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -219,7 +219,7 @@ export const ServiceDetail = () => {
             {/* Connecting Line (Desktop) */}
             <div className="hidden md:block absolute top-[50%] left-[10%] right-[10%] h-[2px] bg-white/5 -translate-y-1/2 z-0" />
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-8 relative z-10">
               {steps.map((step, index) => (
                 <motion.div 
                   key={index}
@@ -262,11 +262,11 @@ export const ServiceDetail = () => {
       </section>
 
       {/* ── Key Features & Tiers ─────────────────────────── */}
-      <section className="py-24 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #04040c 0%, #070b1a 50%, #04040c 100%)' }}>
+      <section className="py-16 md:py-24 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #04040c 0%, #070b1a 50%, #04040c 100%)' }}>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/5 blur-[100px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-[1fr_400px] gap-16">
-            <div className="space-y-16">
+          <div className="grid lg:grid-cols-[1fr_400px] gap-10 md:gap-16">
+            <div className="space-y-12 md:space-y-16">
               <div>
                 <h2 className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-10">What's Included</h2>
                 <div className="grid sm:grid-cols-2 gap-4">

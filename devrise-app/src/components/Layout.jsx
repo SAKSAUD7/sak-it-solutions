@@ -12,6 +12,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const location = useLocation();
 
@@ -23,13 +24,7 @@ const Navbar = () => {
 
   const isHome = location.pathname === '/';
 
-  const handleWorkClick = (e) => {
-    if (isHome) {
-      e.preventDefault();
-      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
-    }
-  };
+
 
   const categories = [...new Set(services.map(s => s.category))];
 
@@ -95,7 +90,7 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          <Link to="/#work" onClick={handleWorkClick} className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Work</Link>
+          <Link to="/work" className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Work</Link>
           <Link to="/contact" className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Contact</Link>
         </div>
         <div className="flex items-center gap-4">
@@ -136,22 +131,29 @@ const Navbar = () => {
           </div>
           
           <div className="flex flex-col gap-6 overflow-y-auto pb-20">
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Home</Link>
-            <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">About</Link>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Home</Link>
+            <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">About</Link>
             
-            <div className="border-b border-white/10 pb-4">
-              <span className="text-sm font-bold uppercase tracking-widest text-primary mb-4 block">Services</span>
-              <div className="grid grid-cols-1 gap-3 pl-4">
+            {/* Services Mobile Dropdown */}
+            <div className="w-full border-b border-white/10 pb-4">
+              <button 
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)} 
+                className="w-full flex items-center justify-between text-2xl font-black font-heading uppercase tracking-widest text-white"
+              >
+                Services
+                <ChevronDown className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <div className={`grid grid-cols-1 gap-2 pl-4 overflow-hidden transition-all duration-300 ${mobileServicesOpen ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0 mt-0'}`}>
                 {services.map(s => (
-                  <Link key={s.id} to={`/services/${s.id}`} onClick={() => setMobileMenuOpen(false)} className="text-lg text-gray-400 font-bold uppercase tracking-wider hover:text-white">
+                  <Link key={s.id} to={`/services/${s.id}`} onClick={() => setMobileMenuOpen(false)} className="block text-xs sm:text-sm font-bold text-gray-400 hover:text-white uppercase tracking-wider py-1.5">
                     {s.title}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <Link to="/#work" onClick={handleWorkClick} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Work</Link>
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Contact</Link>
+            <Link to="/work" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Work</Link>
+            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Contact</Link>
             
             <button 
               onClick={() => { setMobileMenuOpen(false); setIsQuoteOpen(true); }} 
@@ -209,7 +211,7 @@ const MegaFooter = () => {
             <h4 className="text-xs uppercase tracking-widest font-bold text-white mb-6">Company</h4>
             <ul className="space-y-3">
               <li><Link to="/about" className="text-sm text-gray-400 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/#work" className="text-sm text-gray-400 hover:text-white transition-colors">Our Work</Link></li>
+              <li><Link to="/work" className="text-sm text-gray-400 hover:text-white transition-colors">Our Work</Link></li>
               <li><Link to="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">Contact Us</Link></li>
               <li><Link to="#" className="text-sm text-gray-400 hover:text-white transition-colors">Careers</Link></li>
               <li><Link to="#" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
