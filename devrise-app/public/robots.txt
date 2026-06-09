@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://360devrise.com/sitemap.xml
