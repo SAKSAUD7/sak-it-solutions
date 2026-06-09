@@ -14,6 +14,87 @@ export const About = () => {
     { label: "Years Experience", value: 5, suffix: "+" }
   ];
 
+  const AnimatedLogoVideo = () => {
+    return (
+      <div className="relative w-full max-w-4xl mx-auto mt-24 perspective-[1000px]">
+        {/* Ambient Glow */}
+        <div className="absolute inset-0 bg-blue-500/20 blur-[100px] scale-125 -z-10 rounded-full" />
+        
+        <motion.div
+          animate={{
+            rotateY: [0, 15, 0, -15, 0],
+            rotateX: [0, 5, 0, -5, 0],
+            y: [0, -20, 0]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="relative w-full aspect-[16/9] overflow-visible flex items-center justify-center"
+          style={{ transformStyle: 'preserve-3d' }}
+        >
+          {/* Base Layer: Gold Logo (Pushed slightly back) */}
+          <motion.div 
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ translateZ: -20 }}
+          >
+            <img 
+              src="/images/logo_gold.jpg" 
+              alt="360 DevRise Gold" 
+              className="w-full h-full object-contain mix-blend-screen opacity-100 drop-shadow-[0_0_30px_rgba(255,215,0,0.2)]"
+            />
+          </motion.div>
+          
+          {/* Holographic Layer: Neon Logo (Floating forward in 3D space) */}
+          <motion.div 
+            animate={{
+              opacity: [0.3, 0.9, 1, 0.6, 0.3],
+              scale: [1, 1.02, 1.05, 1.02, 1],
+              filter: ['hue-rotate(0deg)', 'hue-rotate(60deg)', 'hue-rotate(120deg)', 'hue-rotate(60deg)', 'hue-rotate(0deg)']
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute inset-0 mix-blend-screen flex items-center justify-center"
+            style={{ translateZ: 50 }}
+          >
+            <img 
+              src="/images/logo_neon.jpg" 
+              alt="360 DevRise Neon" 
+              className="w-full h-full object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.8)]"
+            />
+          </motion.div>
+
+          {/* Glitch/Energy Pulse Layer */}
+          <motion.div
+            animate={{
+              opacity: [0, 0.8, 0, 1, 0, 0.4, 0],
+              x: [0, -15, 0, 20, 0, -10, 0]
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              times: [0, 0.1, 0.2, 0.25, 0.3, 0.8, 1],
+              ease: "circInOut"
+            }}
+            className="absolute inset-0 mix-blend-screen flex items-center justify-center"
+            style={{ translateZ: 20 }}
+          >
+            <img 
+              src="/images/logo_gold.jpg" 
+              alt="Glitch" 
+              className="w-full h-full object-contain grayscale opacity-40 brightness-200"
+            />
+          </motion.div>
+
+        </motion.div>
+      </div>
+    );
+  };
+
   const values = [
     {
       icon: <Code2 className="text-blue-400" size={32} />,
@@ -70,6 +151,7 @@ export const About = () => {
             <p className="text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
               Based in Bangalore, India, 360 DevRise was founded with a singular mission: to bridge the gap between stunning visual design and hardcore software engineering. We don't just build websites; we architect digital empires.
             </p>
+            <AnimatedLogoVideo />
           </motion.div>
         </div>
       </section>

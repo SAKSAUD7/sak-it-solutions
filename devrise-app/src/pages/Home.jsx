@@ -130,7 +130,7 @@ const Hero = () => {
 
 const BentoServicesSection = () => {
   return (
-    <section id="services" className="relative px-6 py-32 overflow-hidden bg-black">
+    <section id="services" className="relative px-6 py-16 md:py-32 overflow-hidden bg-black scroll-mt-24">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] -translate-y-1/2 pointer-events-none" />
       
       <div className="mx-auto max-w-7xl relative z-10">
@@ -257,11 +257,11 @@ const BentoServicesSection = () => {
 
 const StatsSection = () => {
   return (
-    <section className="py-24 border-y border-white/10 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #030305 0%, #080d1a 40%, #050510 100%)' }}>
+    <section className="py-16 md:py-24 border-y border-white/10 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #030305 0%, #080d1a 40%, #050510 100%)' }}>
       {/* Blue glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-blue-600/15 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 divide-x divide-white/10 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 relative z-10">
         <div className="text-center">
           <div className="text-5xl md:text-7xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-br from-blue-400 via-primary to-accent mb-2">
             <CountUp end={100} duration={2.5} enableScrollSpy scrollSpyOnce />+
@@ -292,26 +292,28 @@ const StatsSection = () => {
 };
 
 const CapabilitiesSection = () => {
+  const [activeTag, setActiveTag] = useState('All');
+  
   const tags = [
-    { name: 'All', count: 138, active: true },
-    { name: 'Static Websites', count: 99 },
-    { name: 'E-commerce', count: 31 },
-    { name: 'WordPress', count: 24 },
-    { name: 'Shopify', count: 15 },
-    { name: 'Next.js / React', count: 42 },
-    { name: 'Custom Design', count: 99 },
-    { name: 'UI/UX', count: 17 },
-    { name: 'SaaS Platforms', count: 14 },
-    { name: 'Education', count: 24 },
-    { name: 'Health & Medical', count: 9 },
-    { name: 'Portfolio & Agency', count: 18 },
-    { name: 'Technology', count: 24 },
-    { name: 'Corporate', count: 19 },
-    { name: 'Real Estate', count: 6 }
+    { name: 'All', count: 138, desc: "Explore our complete showcase of award-winning digital experiences and engineering feats." },
+    { name: 'Static Websites', count: 99, desc: "Lightning-fast, highly secure static architectures perfect for high-converting marketing sites." },
+    { name: 'E-commerce', count: 31, desc: "High-performance digital storefronts engineered for maximum conversion and scalability." },
+    { name: 'WordPress', count: 24, desc: "Custom themes and headless architectures built for editorial speed and SEO dominance." },
+    { name: 'Shopify', count: 15, desc: "Premium Shopify setups tailored for massive traffic, custom functionality, and bespoke branding." },
+    { name: 'Next.js / React', count: 42, desc: "Enterprise-grade web applications with server-side rendering for ultimate speed and SEO." },
+    { name: 'Custom Design', count: 99, desc: "Bespoke user interfaces that blend striking aesthetics with frictionless user journeys." },
+    { name: 'UI/UX', count: 17, desc: "Data-driven user experience strategies designed to engage, retain, and convert your audience." },
+    { name: 'SaaS Platforms', count: 14, desc: "Scalable, multi-tenant software architectures built from the ground up for recurring revenue businesses." },
+    { name: 'Education', count: 24, desc: "Interactive learning management systems and portals designed for maximum student engagement." },
+    { name: 'Health & Medical', count: 9, desc: "HIPAA-compliant, highly secure digital health tools and patient management portals." },
+    { name: 'Portfolio & Agency', count: 18, desc: "Show-stopping creative portfolios that command attention and win high-ticket clients." },
+    { name: 'Technology', count: 24, desc: "Advanced technical platforms integrating AI, blockchain, and real-time data processing." },
+    { name: 'Corporate', count: 19, desc: "Authoritative, trust-building digital footprints for enterprise brands and established industry leaders." },
+    { name: 'Real Estate', count: 6, desc: "Immersive property listing platforms with high-definition media, virtual tours, and map integrations." }
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#030305] border-t border-white/5 relative overflow-hidden">
+    <section className="py-16 md:py-24 px-6 bg-[#030305] border-t border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
       
@@ -332,16 +334,16 @@ const CapabilitiesSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.03 }}
+              onClick={() => setActiveTag(tag.name)}
               className={`group relative flex items-center gap-3 px-6 py-3 rounded-full border text-sm font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer overflow-hidden ${
-                tag.active 
+                activeTag === tag.name
                   ? 'border-blue-500/50 bg-blue-500/10 text-white shadow-[0_0_30px_rgba(59,130,246,0.2)]' 
                   : 'border-white/10 bg-white/5 text-gray-400 hover:text-white hover:border-white/30 hover:bg-white/10'
               }`}
             >
-              {tag.active && (
+              {activeTag === tag.name && (
                 <motion.span 
-                  initial={{ scale: 0 }} 
-                  animate={{ scale: 1 }} 
+                  layoutId="activeTagIndicator"
                   className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" 
                 />
               )}
@@ -354,6 +356,29 @@ const CapabilitiesSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <div className="mt-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTag}
+              initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -10, filter: 'blur(5px)' }}
+              transition={{ duration: 0.3 }}
+              className="px-6 py-5 rounded-2xl bg-[#0a0a0f] border border-white/5 max-w-3xl shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+            >
+              <div className="flex gap-4 items-start">
+                <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+                </div>
+                <p className="text-gray-400 text-lg leading-relaxed">
+                  <span className="font-bold text-white uppercase tracking-widest mr-3 text-sm">{activeTag} —</span> 
+                  {tags.find(t => t.name === activeTag)?.desc}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
@@ -361,7 +386,7 @@ const CapabilitiesSection = () => {
 
 const ProjectsCarousel = () => {
   return (
-    <section id="work" className="relative py-32 overflow-hidden" style={{ background: 'linear-gradient(180deg, #06060f 0%, #080d1a 50%, #06060f 100%)' }}>
+    <section id="work" className="relative py-16 md:py-32 overflow-hidden scroll-mt-24" style={{ background: 'linear-gradient(180deg, #06060f 0%, #080d1a 50%, #06060f 100%)' }}>
       <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
       {/* Big blue orb center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-600/8 rounded-full blur-[120px] pointer-events-none" />
@@ -522,7 +547,7 @@ const ProcessSection = () => {
     { num: '04', title: 'Launch & Scale', desc: 'We deploy to production-grade infrastructure, monitor performance, and remain your technical partner for ongoing growth and optimization.', color: 'from-accent to-cyan-500' },
   ];
   return (
-    <section className="py-32 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #04040c 0%, #080d1a 60%, #04040c 100%)' }}>
+    <section className="py-16 md:py-32 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #04040c 0%, #080d1a 60%, #04040c 100%)' }}>
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/8 blur-[120px] rounded-full -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/8 blur-[120px] rounded-full translate-y-1/2 pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
@@ -560,7 +585,7 @@ const FAQSection = () => {
     { q: 'What is your pricing model?', a: 'We offer fixed-price project quotes for well-defined scopes, and time-and-materials billing for ongoing or evolving engagements. Contact us for a free, no-obligation estimate.' },
   ];
   return (
-    <section className="py-32 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #030308 0%, #06091a 50%, #030308 100%)' }}>
+    <section className="py-16 md:py-32 px-6 border-t border-white/5 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #030308 0%, #06091a 50%, #030308 100%)' }}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/8 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-16 text-center">

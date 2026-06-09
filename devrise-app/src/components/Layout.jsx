@@ -5,12 +5,14 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ChevronDown, MessageCircle, MapPin, Phone, Mail, Globe, GitBranch, Menu, X } from 'lucide-react';
 import { CustomCursor } from './ui/CustomCursor';
 import { MagneticButton } from './ui/MagneticButton';
+import { QuoteModal } from './QuoteModal';
 import { services } from '../data/services';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,6 +22,14 @@ const Navbar = () => {
   }, []);
 
   const isHome = location.pathname === '/';
+
+  const handleWorkClick = (e) => {
+    if (isHome) {
+      e.preventDefault();
+      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
 
   const categories = [...new Set(services.map(s => s.category))];
 
@@ -35,7 +45,7 @@ const Navbar = () => {
         }`}
       >
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="360 DevRise" className="h-10 md:h-12 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+          <img src="/logo.png" alt="360 DevRise" className="h-10 md:h-12 object-contain mix-blend-screen drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
         </Link>
         
         {/* Desktop Links */}
@@ -85,11 +95,11 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          <a href={isHome ? "#work" : "/#work"} className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Work</a>
+          <Link to="/#work" onClick={handleWorkClick} className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Work</Link>
           <Link to="/contact" className="text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors">Contact</Link>
         </div>
         <div className="flex items-center gap-4">
-          <MagneticButton href="https://wa.me/917411091256" className="hidden sm:flex rounded-full bg-white text-black px-6 py-2 text-xs uppercase tracking-widest font-bold hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+          <MagneticButton onClick={() => setIsQuoteOpen(true)} className="hidden sm:flex rounded-full bg-white text-black px-6 py-2 text-xs uppercase tracking-widest font-bold hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             Let's Talk
           </MagneticButton>
           
@@ -115,7 +125,7 @@ const Navbar = () => {
         >
           <div className="flex items-center justify-between mb-12">
             <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-              <img src="/logo.png" alt="360 DevRise" className="h-10 object-contain" />
+              <img src="/logo.png" alt="360 DevRise" className="h-10 object-contain mix-blend-screen" />
             </Link>
             <button 
               className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/10"
@@ -140,16 +150,20 @@ const Navbar = () => {
               </div>
             </div>
 
-            <a href={isHome ? "#work" : "/#work"} onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Work</a>
+            <Link to="/#work" onClick={handleWorkClick} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Work</Link>
             <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-black font-heading uppercase tracking-widest text-white border-b border-white/10 pb-4">Contact</Link>
             
-            <a href="https://wa.me/917411091256" className="mt-8 rounded-full bg-white text-black py-4 text-center font-bold uppercase tracking-widest text-sm">
-              Let's Talk on WhatsApp
-            </a>
+            <button 
+              onClick={() => { setMobileMenuOpen(false); setIsQuoteOpen(true); }} 
+              className="mt-8 rounded-full bg-white text-black py-4 text-center font-bold uppercase tracking-widest text-sm"
+            >
+              Let's Connect
+            </button>
           </div>
         </motion.div>
       )}
     </AnimatePresence>
+    <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
     </>
   );
 };
@@ -166,7 +180,7 @@ const MegaFooter = () => {
           {/* Brand Col */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
-              <img src="/logo.png" alt="360 DevRise" className="h-14 object-contain" />
+              <img src="/logo.png" alt="360 DevRise" className="h-14 object-contain mix-blend-screen" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-8">
               360 DevRise engineers digital dominance. We build high-performance web applications, mobile platforms, and enterprise marketing solutions for visionary brands.
@@ -205,20 +219,22 @@ const MegaFooter = () => {
           {/* Contact Direct */}
           <div>
             <h4 className="text-xs uppercase tracking-widest font-bold text-white mb-6">Direct Contact</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="text-primary shrink-0 mt-0.5" size={18} />
-                <span className="text-sm text-gray-400">Headquarters<br/>Bangalore, India</span>
+            <ul className="space-y-4 mb-6">
+              <li className="flex items-start gap-3 group">
+                <MapPin className="text-primary shrink-0 mt-0.5 group-hover:animate-bounce" size={18} />
+                <a href="https://maps.google.com/?q=Bangalore,India" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Headquarters<br/>Bangalore, India
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="text-primary shrink-0" size={18} />
+              <li className="flex items-center gap-3 group">
+                <MessageCircle className="text-green-500 shrink-0 group-hover:scale-110 transition-transform" size={18} />
                 <div>
-                  <a href="tel:+917411091256" className="block text-sm text-gray-400 hover:text-white transition-colors">Saud: +91 7411091256</a>
-                  <a href="tel:+918792248396" className="block text-sm text-gray-400 hover:text-white transition-colors">Saqeeb: +91 8792248396</a>
+                  <a href="https://wa.me/917411091256" target="_blank" rel="noreferrer" className="block text-sm text-gray-400 hover:text-white transition-colors">Saud: +91 7411091256</a>
+                  <a href="https://wa.me/918792248396" target="_blank" rel="noreferrer" className="block text-sm text-gray-400 hover:text-white transition-colors">Saqeeb: +91 8792248396</a>
                 </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="text-primary shrink-0" size={18} />
+              <li className="flex items-center gap-3 group">
+                <Mail className="text-primary shrink-0 group-hover:rotate-12 transition-transform" size={18} />
                 <a href="mailto:saksaud29@gmail.com" className="text-sm text-gray-400 hover:text-white transition-colors">saksaud29@gmail.com</a>
               </li>
             </ul>

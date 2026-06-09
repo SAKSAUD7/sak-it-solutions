@@ -52,7 +52,7 @@ const Preloader = ({ onComplete }) => {
           className="mb-12 relative"
         >
           <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-          <img src="/logo.png" alt="360 DevRise" className="relative z-10 h-28 md:h-36 object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.4)]" />
+          <img src="/logo.png" alt="360 DevRise" className="relative z-10 h-20 md:h-28 object-contain mix-blend-screen drop-shadow-[0_0_40px_rgba(255,255,255,0.4)]" />
         </motion.div>
 
         {/* Loading Bar */}
