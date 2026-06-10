@@ -4,8 +4,14 @@ import { motion } from 'framer-motion';
 export const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  // Only show on devices with a fine pointer (mouse). Hide on touch/mobile.
+  const [isMouseDevice] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches
+  );
 
   useEffect(() => {
+    if (!isMouseDevice) return;
+
     const updateMousePosition = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -31,7 +37,10 @@ export const CustomCursor = () => {
       window.removeEventListener('mousemove', updateMousePosition);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, []);
+  }, [isMouseDevice]);
+
+  // Don't render anything on touch devices
+  if (!isMouseDevice) return null;
 
   return (
     <>
