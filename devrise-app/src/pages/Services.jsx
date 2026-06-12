@@ -140,7 +140,7 @@ export const Services = () => {
           <h2 className="text-4xl sm:text-6xl font-black font-heading uppercase tracking-tight mb-6 relative z-10">Not sure where to start?</h2>
           <p className="text-lg text-gray-300 max-w-xl mx-auto mb-10 relative z-10">Let us analyze your business and recommend the exact digital architecture you need to scale.</p>
           <a
-            href="https://wa.me/917411091256"
+            href={`https://wa.me/917411091256?text=${encodeURIComponent('Hi, I would like to schedule a free consultation. I am not sure where to start.')}`}
             target="_blank"
             rel="noreferrer"
             className="relative z-10 inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform"

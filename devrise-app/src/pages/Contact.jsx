@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, MessageCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { MagneticButton } from '../components/ui/MagneticButton';
+import { services } from '../data/services';
 
 export const Contact = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -11,7 +12,7 @@ export const Contact = () => {
     firstName: '',
     lastName: '',
     email: '',
-    projectType: 'Web Development',
+    projectType: services.length > 0 ? services[0].title : 'Web Development',
     details: ''
   });
 
@@ -165,10 +166,11 @@ export const Contact = () => {
               <div className="space-y-2">
                 <label className="text-xs uppercase tracking-widest font-bold text-gray-500">Project Type</label>
                 <select value={formData.projectType} onChange={e => setFormData({...formData, projectType: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none">
-                  <option className="bg-black">Web Development</option>
-                  <option className="bg-black">Mobile App Development</option>
-                  <option className="bg-black">Digital Marketing / SEO</option>
-                  <option className="bg-black">Other</option>
+                  <option value="" disabled className="bg-black">Select a Service</option>
+                  {services.map((s) => (
+                    <option key={s.id} value={s.title} className="bg-black">{s.title}</option>
+                  ))}
+                  <option value="Other" className="bg-black">Other</option>
                 </select>
               </div>
 

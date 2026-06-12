@@ -188,7 +188,7 @@ export const Work = () => {
           <p className="text-lg text-gray-300 max-w-xl mx-auto mb-10">Let's build your digital empire together. Talk directly with our engineering leads to start architecting your solution today.</p>
           
           <a 
-            href="https://wa.me/917411091256" 
+            href={`https://wa.me/917411091256?text=${encodeURIComponent('Hi, I have a vision for a project and would like to talk to your engineering team.')}`} 
             target="_blank" 
             rel="noreferrer"
             className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform"
