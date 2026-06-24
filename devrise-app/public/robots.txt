@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://360devrise.com/sitemap.xml
+Sitemap: https://360devrise.vercel.app/sitemap.xml

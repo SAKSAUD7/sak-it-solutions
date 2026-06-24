@@ -3,107 +3,107 @@
 
   <!-- Core Pages -->
   <url>
-    <loc>https://360devrise.com/</loc>
+    <loc>https://360devrise.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/about</loc>
+    <loc>https://360devrise.vercel.app/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/work</loc>
+    <loc>https://360devrise.vercel.app/work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services</loc>
+    <loc>https://360devrise.vercel.app/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/contact</loc>
+    <loc>https://360devrise.vercel.app/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Web Development -->
   <url>
-    <loc>https://360devrise.com/services/web-static</loc>
+    <loc>https://360devrise.vercel.app/services/web-static</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/web-dynamic</loc>
+    <loc>https://360devrise.vercel.app/services/web-dynamic</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/web-enterprise</loc>
+    <loc>https://360devrise.vercel.app/services/web-enterprise</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- App Development -->
   <url>
-    <loc>https://360devrise.com/services/app-ios</loc>
+    <loc>https://360devrise.vercel.app/services/app-ios</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/app-android</loc>
+    <loc>https://360devrise.vercel.app/services/app-android</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/app-crossplatform</loc>
+    <loc>https://360devrise.vercel.app/services/app-crossplatform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Digital Marketing -->
   <url>
-    <loc>https://360devrise.com/services/marketing-seo</loc>
+    <loc>https://360devrise.vercel.app/services/marketing-seo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/marketing-social</loc>
+    <loc>https://360devrise.vercel.app/services/marketing-social</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/marketing-ads</loc>
+    <loc>https://360devrise.vercel.app/services/marketing-ads</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- AI & Automation -->
   <url>
-    <loc>https://360devrise.com/services/ai-whatsapp</loc>
+    <loc>https://360devrise.vercel.app/services/ai-whatsapp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/ai-workflow</loc>
+    <loc>https://360devrise.vercel.app/services/ai-workflow</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Specialized Platforms -->
   <url>
-    <loc>https://360devrise.com/services/platform-booking</loc>
+    <loc>https://360devrise.vercel.app/services/platform-booking</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/platform-ecommerce</loc>
+    <loc>https://360devrise.vercel.app/services/platform-ecommerce</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://360devrise.com/services/platform-dashboard</loc>
+    <loc>https://360devrise.vercel.app/services/platform-dashboard</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

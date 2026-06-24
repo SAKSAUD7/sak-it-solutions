@@ -624,10 +624,10 @@ export const Home = () => {
         <title>360 DevRise | Software Company Bangalore | 360devrise</title>
         <meta name="description" content="360 DevRise (360devrise) is an elite software company in Bangalore specializing in custom web applications, native mobile apps, and technical SEO. Start your digital dominance today." />
         <meta name="keywords" content="360devrise, 360 devrise, software company bangalore, web development agency bangalore, app developers bangalore, SEO agency bangalore, react development company, 360devrise bangalore" />
-        <link rel="canonical" href="https://360devrise.com/" />
+        <link rel="canonical" href="https://360devrise.vercel.app/" />
         <meta property="og:title" content="360 DevRise | Software Company Bangalore" />
         <meta property="og:description" content="Elite software company in Bangalore specializing in custom web applications, native mobile apps, and technical SEO." />
-        <meta property="og:url" content="https://360devrise.com/" />
+        <meta property="og:url" content="https://360devrise.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="360 DevRise | Software Company Bangalore" />
