@@ -79,8 +79,17 @@ export const ServiceDetail = () => {
       className="min-h-screen"
     >
       <Helmet>
-        <title>{service.title} | 360 DevRise</title>
+        <title>{service.title} | 360 DevRise Software Company</title>
         <meta name="description" content={service.longDesc?.slice(0, 160)} />
+        <meta name="keywords" content={`${service.title.toLowerCase()}, 360devrise, software company bangalore, ${service.category.toLowerCase()} services bangalore`} />
+        <link rel="canonical" href={`https://360devrise.com/services/${service.id}`} />
+        <meta property="og:title" content={`${service.title} | 360 DevRise Software Company`} />
+        <meta property="og:description" content={service.longDesc?.slice(0, 160)} />
+        <meta property="og:url" content={`https://360devrise.com/services/${service.id}`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${service.title} | 360 DevRise`} />
+        <meta name="twitter:description" content={service.longDesc?.slice(0, 160)} />
       </Helmet>
 
       {/* ── Hero ─────────────────────────────────────────── */}

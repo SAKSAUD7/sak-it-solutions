@@ -29,8 +29,17 @@ export const Work = () => {
       style={{ background: 'linear-gradient(180deg, #06060f 0%, #080d1a 50%, #06060f 100%)' }}
     >
       <Helmet>
-        <title>Our Work | 360 DevRise</title>
-        <meta name="description" content="Explore our portfolio of high-performance web applications, mobile platforms, and enterprise digital solutions engineered by 360 DevRise." />
+        <title>Portfolio & Projects | 360 DevRise Software Agency</title>
+        <meta name="description" content="Explore the 360 DevRise portfolio. We build enterprise web applications, native mobile apps, and scalable digital solutions for global brands." />
+        <meta name="keywords" content="360devrise portfolio, software agency portfolio, react development, mobile app portfolio, bangalore web design" />
+        <link rel="canonical" href="https://360devrise.com/work" />
+        <meta property="og:title" content="Portfolio & Projects | 360 DevRise" />
+        <meta property="og:description" content="Explore our enterprise web and mobile app projects." />
+        <meta property="og:url" content="https://360devrise.com/work" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolio & Projects | 360 DevRise" />
+        <meta name="twitter:description" content="Explore our enterprise web and mobile app projects." />
       </Helmet>
 
       {/* Background Effects */}

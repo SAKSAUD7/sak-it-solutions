@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ChevronRight, ArrowUpRight, Plus, Minus } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
@@ -619,6 +620,19 @@ const FAQSection = () => {
 export const Home = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
+      <Helmet>
+        <title>360 DevRise | Software Company Bangalore | 360devrise</title>
+        <meta name="description" content="360 DevRise (360devrise) is an elite software company in Bangalore specializing in custom web applications, native mobile apps, and technical SEO. Start your digital dominance today." />
+        <meta name="keywords" content="360devrise, 360 devrise, software company bangalore, web development agency bangalore, app developers bangalore, SEO agency bangalore, react development company, 360devrise bangalore" />
+        <link rel="canonical" href="https://360devrise.com/" />
+        <meta property="og:title" content="360 DevRise | Software Company Bangalore" />
+        <meta property="og:description" content="Elite software company in Bangalore specializing in custom web applications, native mobile apps, and technical SEO." />
+        <meta property="og:url" content="https://360devrise.com/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="360 DevRise | Software Company Bangalore" />
+        <meta name="twitter:description" content="Elite software company in Bangalore specializing in custom web applications, native mobile apps, and technical SEO." />
+      </Helmet>
       <Hero />
       <StatsSection />
       <BentoServicesSection />

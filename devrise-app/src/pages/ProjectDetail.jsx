@@ -98,6 +98,17 @@ export const ProjectDetail = () => {
       <Helmet>
         <title>{project.title} | 360 DevRise Case Study</title>
         <meta name="description" content={project.short} />
+        <meta name="keywords" content={`${project.title.toLowerCase()}, 360devrise case study, ${project.category.toLowerCase()} portfolio, software company bangalore`} />
+        <link rel="canonical" href={`https://360devrise.com/projects/${project.id}`} />
+        <meta property="og:title" content={`${project.title} | 360 DevRise Case Study`} />
+        <meta property="og:description" content={project.short} />
+        <meta property="og:url" content={`https://360devrise.com/projects/${project.id}`} />
+        <meta property="og:type" content="article" />
+        {project.image && <meta property="og:image" content={`https://360devrise.com${project.image}`} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} | 360 DevRise`} />
+        <meta name="twitter:description" content={project.short} />
+        {project.image && <meta name="twitter:image" content={`https://360devrise.com${project.image}`} />}
       </Helmet>
 
       {lightboxIndex !== null && (

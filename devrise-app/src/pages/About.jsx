@@ -133,8 +133,17 @@ export const About = () => {
       className="bg-background pt-32"
     >
       <Helmet>
-        <title>About Us | 360 DevRise</title>
-        <meta name="description" content="Meet the founders of 360 DevRise, Saud and Saqeeb. We are a premium digital engineering agency from Bangalore, building world-class platforms." />
+        <title>About 360 DevRise | Software Company Bangalore</title>
+        <meta name="description" content="Meet the founders of 360 DevRise, Saud and Saqeeb. We are a premium software company and digital engineering agency from Bangalore, building world-class platforms." />
+        <meta name="keywords" content="about 360devrise, 360 devrise founders, software company bangalore, web agency bangalore, saud, saqeeb" />
+        <link rel="canonical" href="https://360devrise.com/about" />
+        <meta property="og:title" content="About 360 DevRise | Software Company Bangalore" />
+        <meta property="og:description" content="Meet the founders of 360 DevRise, Saud and Saqeeb. We are a premium software company and digital engineering agency from Bangalore." />
+        <meta property="og:url" content="https://360devrise.com/about" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About 360 DevRise" />
+        <meta name="twitter:description" content="Meet the founders of 360 DevRise, Saud and Saqeeb." />
       </Helmet>
 
       {/* Hero Section */}

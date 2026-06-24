@@ -24,8 +24,17 @@ export const Services = () => {
       className="min-h-screen pt-32 pb-24 px-6 relative overflow-hidden bg-background"
     >
       <Helmet>
-        <title>All Services | 360 DevRise</title>
-        <meta name="description" content="Explore our complete suite of digital engineering services including Web Platforms, Mobile Apps, SEO, and AI Chatbots." />
+        <title>Our Services | Software Development Agency Bangalore | 360 DevRise</title>
+        <meta name="description" content="360 DevRise offers enterprise web development, mobile app engineering, SEO, and digital marketing services in Bangalore." />
+        <meta name="keywords" content="web development services, mobile app development, SEO services bangalore, digital marketing agency, 360devrise services" />
+        <link rel="canonical" href="https://360devrise.com/services" />
+        <meta property="og:title" content="Our Services | 360 DevRise Bangalore" />
+        <meta property="og:description" content="360 DevRise offers enterprise web development, mobile app engineering, and SEO services." />
+        <meta property="og:url" content="https://360devrise.com/services" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Services | 360 DevRise Bangalore" />
+        <meta name="twitter:description" content="360 DevRise offers enterprise web development, mobile app engineering, and SEO services." />
       </Helmet>
 
       {/* Background */}

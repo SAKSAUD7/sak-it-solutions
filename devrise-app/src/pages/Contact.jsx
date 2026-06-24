@@ -35,8 +35,17 @@ export const Contact = () => {
       style={{ background: 'linear-gradient(135deg, #030308 0%, #06091a 50%, #030308 100%)' }}
     >
       <Helmet>
-        <title>Contact Us | 360 DevRise</title>
-        <meta name="description" content="Get in touch with 360 DevRise. Contact Saud and Saqeeb directly to start your digital engineering project." />
+        <title>Contact 360 DevRise | Software Company Bangalore</title>
+        <meta name="description" content="Get in touch with 360 DevRise. Contact our Bangalore-based software agency directly to start your custom web development or mobile app project." />
+        <meta name="keywords" content="contact 360devrise, 360 devrise contact number, software company bangalore contact, web developers near me, hire react developers bangalore" />
+        <link rel="canonical" href="https://360devrise.com/contact" />
+        <meta property="og:title" content="Contact 360 DevRise | Software Company Bangalore" />
+        <meta property="og:description" content="Contact our Bangalore-based software agency directly to start your digital engineering project." />
+        <meta property="og:url" content="https://360devrise.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact 360 DevRise" />
+        <meta name="twitter:description" content="Contact our Bangalore-based software agency directly to start your digital engineering project." />
       </Helmet>
 
       {/* Background Effects */}
