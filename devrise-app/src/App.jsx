@@ -10,6 +10,7 @@ import { Contact } from './pages/Contact';
 import { About } from './pages/About';
 import { Work } from './pages/Work';
 import { Services } from './pages/Services';
+import { initGA, logPageView } from './lib/analytics';
 
 const Preloader = ({ onComplete }) => {
   const [loadingText, setLoadingText] = useState('Initiating Systems...');
@@ -92,11 +93,17 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    logPageView(); // Send page view to Google Analytics on route change
   }, [pathname]);
   return null;
 };
 
 function App() {
+  // Initialize Google Analytics once on mount
+  useEffect(() => {
+    initGA();
+  }, []);
+
   // Only show preloader once per browser session
   const [loading, setLoading] = useState(() => !sessionStorage.getItem('preloaderShown'));
 

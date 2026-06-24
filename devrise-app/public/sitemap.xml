@@ -8,6 +8,21 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://360devrise.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://360devrise.com/work</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://360devrise.com/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://360devrise.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
