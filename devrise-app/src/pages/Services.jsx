@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { services } from '../data/services.jsx';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
+import { logEvent } from '../lib/analytics';
 
 export const Services = () => {
   useEffect(() => {
@@ -143,6 +144,7 @@ export const Services = () => {
             href={`https://wa.me/917411091256?text=${encodeURIComponent('Hi, I would like to schedule a free consultation. I am not sure where to start.')}`}
             target="_blank"
             rel="noreferrer"
+            onClick={() => logEvent('Lead', 'WhatsApp Click', 'Services Hub - Consultation')}
             className="relative z-10 inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform"
           >
             Get Free Consultation <ArrowRight size={18} />

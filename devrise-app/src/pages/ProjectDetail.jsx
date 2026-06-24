@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink, X, ChevronLeft, ChevronRight, CheckCircle2, Co
 import { projects } from '../data/projects';
 import { MagneticButton } from '../components/ui/MagneticButton';
 import { Helmet } from 'react-helmet-async';
+import { logEvent } from '../lib/analytics';
 
 // Lightbox modal for gallery images
 const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }) => (
@@ -346,7 +347,7 @@ export const ProjectDetail = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[60px] rounded-full pointer-events-none" />
               <h3 className="font-heading text-xl font-bold mb-3">Need something similar?</h3>
               <p className="text-sm text-gray-400 mb-6 leading-relaxed">Let's engineer a bespoke solution for your business objectives.</p>
-              <MagneticButton href={`https://wa.me/917411091256?text=${encodeURIComponent(`Hi, I saw the ${project.title} project and need something similar. Let's talk.`)}`} className="block w-full text-center rounded-2xl bg-white text-black px-6 py-4 font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-all">
+              <MagneticButton href={`https://wa.me/917411091256?text=${encodeURIComponent(`Hi, I saw the ${project.title} project and need something similar. Let's talk.`)}`} onClick={() => logEvent('Lead', 'WhatsApp Click', `Project: ${project.title}`)} className="block w-full text-center rounded-2xl bg-white text-black px-6 py-4 font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-all">
                 Start Your Project →
               </MagneticButton>
             </div>

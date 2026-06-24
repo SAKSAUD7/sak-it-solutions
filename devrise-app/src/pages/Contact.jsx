@@ -4,6 +4,7 @@ import { Mail, MapPin, Phone, Send, MessageCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { MagneticButton } from '../components/ui/MagneticButton';
 import { services } from '../data/services';
+import { logEvent } from '../lib/analytics';
 
 export const Contact = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -18,6 +19,7 @@ export const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    logEvent('Lead', 'Form Submission', formData.projectType);
     const text = `*New Contact Form Inquiry* 🚀\n\n*Name:* ${formData.firstName} ${formData.lastName}\n*Email:* ${formData.email}\n*Service Needed:* ${formData.projectType}\n\n*Details:* ${formData.details}`;
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/917411091256?text=${encodedText}`, '_blank');
@@ -102,7 +104,7 @@ export const Contact = () => {
                   <MapPin size={18} className="text-gray-500" /> Bangalore, India
                 </div>
               </div>
-              <MagneticButton href="https://wa.me/917411091256" className="w-full rounded-2xl bg-[#25D366] text-white px-6 py-4 font-bold flex items-center justify-center gap-2 hover:bg-[#1ebd5a] transition-all shadow-lg">
+              <MagneticButton href="https://wa.me/917411091256" onClick={() => logEvent('Lead', 'WhatsApp Direct', 'Saud')} className="w-full rounded-2xl bg-[#25D366] text-white px-6 py-4 font-bold flex items-center justify-center gap-2 hover:bg-[#1ebd5a] transition-all shadow-lg">
                 <MessageCircle size={20} /> Message on WhatsApp
               </MagneticButton>
             </motion.div>
@@ -129,7 +131,7 @@ export const Contact = () => {
                   <Phone size={18} className="text-gray-500" /> +91 8792248396
                 </a>
               </div>
-              <MagneticButton href="https://wa.me/918792248396" className="w-full rounded-2xl bg-[#25D366] text-white px-6 py-4 font-bold flex items-center justify-center gap-2 hover:bg-[#1ebd5a] transition-all shadow-lg">
+              <MagneticButton href="https://wa.me/918792248396" onClick={() => logEvent('Lead', 'WhatsApp Direct', 'Saqeeb')} className="w-full rounded-2xl bg-[#25D366] text-white px-6 py-4 font-bold flex items-center justify-center gap-2 hover:bg-[#1ebd5a] transition-all shadow-lg">
                 <MessageCircle size={20} /> Message on WhatsApp
               </MagneticButton>
             </motion.div>

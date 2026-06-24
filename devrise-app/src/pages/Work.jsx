@@ -7,6 +7,7 @@ import Tilt from 'react-parallax-tilt';
 import CountUpModule from 'react-countup';
 const CountUp = CountUpModule.default || CountUpModule;
 import { Shield, ArrowRight, Lock, Sparkles } from 'lucide-react';
+import { logEvent } from '../lib/analytics';
 
 export const Work = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -191,6 +192,7 @@ export const Work = () => {
             href={`https://wa.me/917411091256?text=${encodeURIComponent('Hi, I have a vision for a project and would like to talk to your engineering team.')}`} 
             target="_blank" 
             rel="noreferrer"
+            onClick={() => logEvent('Lead', 'WhatsApp Click', 'Work Portfolio - CTA')}
             className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform"
           >
             Start a Project <ArrowRight size={18} />

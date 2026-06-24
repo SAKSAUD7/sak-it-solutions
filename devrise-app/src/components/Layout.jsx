@@ -7,6 +7,7 @@ import { CustomCursor } from './ui/CustomCursor';
 import { MagneticButton } from './ui/MagneticButton';
 import { QuoteModal } from './QuoteModal';
 import { services } from '../data/services';
+import { logEvent } from '../lib/analytics';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -231,8 +232,8 @@ const MegaFooter = () => {
               <li className="flex items-center gap-3 group">
                 <MessageCircle className="text-green-500 shrink-0 group-hover:scale-110 transition-transform" size={18} />
                 <div>
-                  <a href="https://wa.me/917411091256" target="_blank" rel="noreferrer" className="block text-sm text-gray-400 hover:text-white transition-colors">Saud: +91 7411091256</a>
-                  <a href="https://wa.me/918792248396" target="_blank" rel="noreferrer" className="block text-sm text-gray-400 hover:text-white transition-colors">Saqeeb: +91 8792248396</a>
+                  <a href="https://wa.me/917411091256" target="_blank" rel="noreferrer" onClick={() => logEvent('Lead', 'WhatsApp Click', 'Footer - Saud')} className="block text-sm text-gray-400 hover:text-white transition-colors">Saud: +91 7411091256</a>
+                  <a href="https://wa.me/918792248396" target="_blank" rel="noreferrer" onClick={() => logEvent('Lead', 'WhatsApp Click', 'Footer - Saqeeb')} className="block text-sm text-gray-400 hover:text-white transition-colors">Saqeeb: +91 8792248396</a>
                 </div>
               </li>
               <li className="flex items-center gap-3 group">
@@ -261,6 +262,7 @@ const WhatsAppWidget = () => {
       href="https://wa.me/917411091256"
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => logEvent('Lead', 'WhatsApp Click', 'Floating Widget')}
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       whileHover={{ scale: 1.1 }}

@@ -9,6 +9,7 @@ import { services } from '../data/services';
 import { MagneticButton } from '../components/ui/MagneticButton';
 import { HowItWorks } from '../components/HowItWorks';
 import { Helmet } from 'react-helmet-async';
+import { logEvent } from '../lib/analytics';
 
 const processSteps = {
   'web-static': ['Requirements & Discovery', 'Wireframes & Design System', 'Frontend Development', 'Performance Audit & Launch'],
@@ -135,6 +136,7 @@ export const ServiceDetail = () => {
           >
             <MagneticButton
               href={`https://wa.me/917411091256?text=${encodeURIComponent(`Hi, I am interested in the ${service.title} service. Could I get a free quote?`)}`}
+              onClick={() => logEvent('Lead', 'WhatsApp Click', `${service.title} - Hero`)}
               className="inline-flex items-center gap-3 rounded-full bg-white text-black px-10 py-5 font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-all shadow-xl"
             >
               Get a Free Quote <ArrowRight size={16} />
@@ -315,7 +317,7 @@ export const ServiceDetail = () => {
                           ))}
                         </ul>
 
-                        <a href={`https://wa.me/917411091256?text=${encodeURIComponent(`Hi, I am interested in the ${tier.name} tier for the ${service.title} service.`)}`} className="relative z-10 w-full text-center rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-all">
+                        <a href={`https://wa.me/917411091256?text=${encodeURIComponent(`Hi, I am interested in the ${tier.name} tier for the ${service.title} service.`)}`} onClick={() => logEvent('Lead', 'WhatsApp Click', `${service.title} - Tier: ${tier.name}`)} className="relative z-10 w-full text-center rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-all">
                           Inquire Now
                         </a>
                       </motion.div>
@@ -357,7 +359,7 @@ export const ServiceDetail = () => {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-primary/20 blur-[60px] rounded-full pointer-events-none" />
                 <h3 className="font-heading text-xl font-bold mb-3">Ready to start?</h3>
                 <p className="text-sm text-gray-400 mb-6 leading-relaxed">Talk to our team today. Free 30-min consultation, no commitment.</p>
-                <MagneticButton href={`https://wa.me/917411091256?text=${encodeURIComponent(`Hi, I would like to schedule a free 30-min consultation for the ${service.title} service.`)}`} className="block w-full text-center rounded-2xl bg-white text-black px-6 py-4 font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-all">
+                <MagneticButton href={`https://wa.me/917411091256?text=${encodeURIComponent(`Hi, I would like to schedule a free 30-min consultation for the ${service.title} service.`)}`} onClick={() => logEvent('Lead', 'WhatsApp Click', `${service.title} - Footer CTA`)} className="block w-full text-center rounded-2xl bg-white text-black px-6 py-4 font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-all">
                   WhatsApp Us Now
                 </MagneticButton>
               </div>

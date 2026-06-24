@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send } from 'lucide-react';
+import { logEvent } from '../lib/analytics';
 
 export const QuoteModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,8 @@ export const QuoteModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    logEvent('Lead', 'Quote Modal Submission', formData.service);
     
     // Construct WhatsApp message
     const text = `*New Project Inquiry* 🚀\n\n*Name:* ${formData.name}\n*Company:* ${formData.companyName}\n*Contact:* ${formData.contact}\n*Service Needed:* ${formData.service}\n\n*Details:* ${formData.details}`;
