@@ -90,6 +90,19 @@ export const ServiceDetail = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${service.title} | 360 DevRise`} />
         <meta name="twitter:description" content={service.longDesc?.slice(0, 160)} />
+        {service.faqs?.length > 0 && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: service.faqs.map((f) => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            })}
+          </script>
+        )}
       </Helmet>
 
       {/* ── Hero ─────────────────────────────────────────── */}

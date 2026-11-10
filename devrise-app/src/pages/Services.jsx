@@ -6,6 +6,7 @@ import { services } from '../data/services.jsx';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
 import { logEvent } from '../lib/analytics';
+import { SolutionBuilder3D } from '../components/SolutionBuilder3D';
 
 export const Services = () => {
   useEffect(() => {
@@ -137,6 +138,8 @@ export const Services = () => {
             </div>
           </div>
         ))}
+
+        <div className="-mx-6 mb-20"><SolutionBuilder3D /></div>
 
         {/* CTA */}
         <motion.div

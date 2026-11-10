@@ -55,9 +55,9 @@ const Navbar = () => {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button className="flex items-center gap-1 text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors py-2">
+            <Link to="/services" onClick={() => setServicesOpen(false)} className="flex items-center gap-1 text-xs tracking-widest uppercase font-semibold text-gray-400 hover:text-white transition-colors py-2">
               Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-            </button>
+            </Link>
             
             <AnimatePresence>
               {servicesOpen && (
@@ -145,6 +145,7 @@ const Navbar = () => {
                 <ChevronDown className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               <div className={`grid grid-cols-1 gap-2 pl-4 overflow-hidden transition-all duration-300 ${mobileServicesOpen ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0 mt-0'}`}>
+                <Link to="/services" onClick={() => setMobileMenuOpen(false)} className="block text-xs sm:text-sm font-black text-primary uppercase tracking-widest py-1">View all services</Link>
                 {services.map(s => (
                   <Link key={s.id} to={`/services/${s.id}`} onClick={() => setMobileMenuOpen(false)} className="block text-xs sm:text-sm font-bold text-gray-400 hover:text-white uppercase tracking-wider py-1.5">
                     {s.title}

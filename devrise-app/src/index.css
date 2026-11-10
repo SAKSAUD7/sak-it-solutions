@@ -43,3 +43,20 @@
   background: #6c63ff;
   border-radius: 4px;
 }
+
+/* 3D solution builder: new layers drop onto the stack */
+@keyframes slab-drop {
+  from { transform: translateZ(140px); }
+  to { transform: translateZ(0); }
+}
+.slab-drop {
+  animation: slab-drop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .slab-drop { animation: none; }
+}
+
+/* Phones zoom the page when a focused field is under 16px; keep fields at 16px there. */
+@media (max-width: 767px) {
+  input, textarea, select { font-size: 16px !important; }
+}

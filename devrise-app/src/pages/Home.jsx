@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ChevronRight, ArrowUpRight, Plus, Minus } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import Tilt from 'react-parallax-tilt';
-import CountUpModule from 'react-countup';
-const CountUp = CountUpModule.default || CountUpModule;
 
-import { services } from '../data/services.jsx';
 import { projects } from '../data/projects';
 import { HowItWorks } from '../components/HowItWorks';
 import { QuoteModal } from '../components/QuoteModal';
+import { ServicesExplorer } from '../components/home/ServicesExplorer';
+import { WhyDevRise } from '../components/home/WhyDevRise';
+import { SolutionBuilder3D } from '../components/SolutionBuilder3D';
 
 const Hero = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -124,169 +124,6 @@ const Hero = () => {
           <span className="text-white">•</span>
           <span>SEO & MARKETING</span>
         </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const BentoServicesSection = () => {
-  return (
-    <section id="services" className="relative px-6 py-16 md:py-32 overflow-hidden bg-black scroll-mt-24">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] -translate-y-1/2 pointer-events-none" />
-      
-      <div className="mx-auto max-w-7xl relative z-10">
-        <div className="mb-20">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary"
-          >
-            Our Expertise
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-heading text-5xl sm:text-7xl font-black uppercase tracking-tight"
-          >
-            Digital <span className="text-transparent" style={{ WebkitTextStroke: '2px white' }}>Dominance</span>
-          </motion.h2>
-        </div>
-        
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
-          {/* Main Large Card */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="md:col-span-2 md:row-span-2 group relative rounded-[2rem] border border-white/10 bg-[#0a0a0a] overflow-hidden p-8 hover:border-primary/50 transition-colors"
-          >
-            <Link to={`/services/${services[0].id}`} className="absolute inset-0 z-50" aria-label={services[0].title} />
-            <div className="absolute inset-0 z-0">
-              <img src="/images/gallery/bento_1.png" alt="Abstract tech" className="w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-            </div>
-            <div className="relative z-10 h-full flex flex-col justify-end">
-              <div className="mb-4 inline-flex rounded-2xl bg-white/10 p-4 text-white backdrop-blur-md w-fit">
-                {services[0].icon}
-              </div>
-              <h3 className="text-4xl font-black font-heading mb-4 uppercase">{services[0].title}</h3>
-              <p className="text-gray-400 text-lg mb-6 max-w-md">{services[0].desc}</p>
-              <span className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-widest group-hover:text-white transition-colors w-fit pointer-events-none">
-                Explore Engineering <ChevronRight size={16} />
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Top Right Card */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="md:col-span-2 group relative rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#0f172a] to-[#050505] overflow-hidden p-8 hover:border-blue-500/30 transition-colors"
-          >
-            <Link to={`/services/${services[1].id}`} className="absolute inset-0 z-50" aria-label={services[1].title} />
-            <div className="relative z-10 flex flex-col justify-between h-full">
-              <div className="flex justify-between items-start">
-                <div className="inline-flex rounded-full bg-blue-500/20 text-blue-400 p-3">
-                  {services[1].icon}
-                </div>
-                <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                  <ArrowUpRight size={20} />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold font-heading mb-2 uppercase">{services[1].title}</h3>
-                <p className="text-gray-400">{services[1].desc}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Bottom Right Cards (2) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="group relative rounded-[2rem] border border-white/10 bg-[#0a0a0a] overflow-hidden p-8 hover:border-purple-500/30 transition-colors flex flex-col justify-between"
-          >
-             <Link to={`/services/${services[2].id}`} className="absolute inset-0 z-50" aria-label={services[2].title} />
-             <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-purple-500 blur-[80px] rounded-full" />
-             </div>
-             <div className="relative z-10">
-               {services[2].icon}
-             </div>
-             <div className="relative z-10">
-               <h3 className="text-xl font-bold font-heading mb-2 uppercase">{services[2].title}</h3>
-               <span className="text-xs uppercase tracking-widest text-gray-400 group-hover:text-white flex items-center gap-2">Read More <ArrowUpRight size={14}/></span>
-             </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="group relative rounded-[2rem] border border-white/10 bg-[#0a0a0a] overflow-hidden p-8 hover:border-blue-500/30 transition-colors flex flex-col justify-between"
-          >
-             <Link to={`/services/${services[8].id}`} className="absolute inset-0 z-50" aria-label={services[8].title} />
-             <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity">
-                <img src="/images/gallery/bento_2.png" className="w-full h-full object-cover" alt="abstract" />
-                <div className="absolute inset-0 bg-blue-500/20 mix-blend-overlay" />
-             </div>
-             <div className="relative z-10 text-white">
-               {services[8].icon}
-             </div>
-             <div className="relative z-10">
-               <h3 className="text-xl font-bold font-heading mb-2 uppercase">{services[8].title}</h3>
-               <span className="text-xs uppercase tracking-widest text-gray-400 group-hover:text-white flex items-center gap-2">Read More <ArrowUpRight size={14}/></span>
-             </div>
-          </motion.div>
-
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white hover:text-primary transition-colors border-b border-white/20 pb-1">
-            View All Services <ArrowUpRight size={16} />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const StatsSection = () => {
-  return (
-    <section className="py-16 md:py-24 border-y border-white/10 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #030305 0%, #080d1a 40%, #050510 100%)' }}>
-      {/* Blue glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-blue-600/15 blur-[100px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 relative z-10">
-        <div className="text-center">
-          <div className="text-5xl md:text-7xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-br from-blue-400 via-primary to-accent mb-2">
-            <CountUp end={100} duration={2.5} enableScrollSpy scrollSpyOnce />+
-          </div>
-          <div className="text-xs uppercase tracking-widest text-gray-500 font-bold">Projects Delivered</div>
-        </div>
-        <div className="text-center">
-          <div className="text-5xl md:text-7xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-blue-500 to-primary mb-2">
-            <CountUp end={50} duration={2.5} enableScrollSpy scrollSpyOnce />+
-          </div>
-          <div className="text-xs uppercase tracking-widest text-gray-500 font-bold">Enterprise Clients</div>
-        </div>
-        <div className="text-center">
-          <div className="text-5xl md:text-7xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-br from-primary via-accent to-blue-400 mb-2">
-            <CountUp end={99} duration={2.5} enableScrollSpy scrollSpyOnce />%
-          </div>
-          <div className="text-xs uppercase tracking-widest text-gray-500 font-bold">Client Retention</div>
-        </div>
-        <div className="text-center">
-          <div className="text-5xl md:text-7xl font-black font-heading text-transparent bg-clip-text bg-gradient-to-br from-indigo-400 via-primary to-cyan-400 mb-2">
-            <CountUp end={5} duration={2.5} enableScrollSpy scrollSpyOnce />
-          </div>
-          <div className="text-xs uppercase tracking-widest text-gray-500 font-bold">Global Awards</div>
-        </div>
       </div>
     </section>
   );
@@ -465,60 +302,6 @@ const ProjectsCarousel = () => {
   );
 };
 
-const TestimonialsSection = () => {
-  const reviews = [
-    { name: 'Alex M.', role: 'CEO, TechVenture', body: 'The team at 360 DevRise completely transformed our booking platform. They delivered a production-grade system that handles thousands of daily sessions. Absolutely elite work.', rating: 5 },
-    { name: 'Sarah K.', role: 'CTO, HealthFirst', body: 'We needed a HIPAA-compliant mobile app in 8 weeks. Not only did they deliver on time, the code quality was impeccable. I would not trust anyone else with our tech stack.', rating: 5 },
-    { name: 'James O.', role: 'Founder, Logix', body: 'From wireframes to deployment, every single sprint was delivered on schedule. The dashboard they built has saved our ops team 20+ hours per week. Incredible ROI.', rating: 5 },
-    { name: 'Priya R.', role: 'Product Lead, Crumblee', body: 'Our Next.js app needed a full performance overhaul. 360 DevRise cut our load time from 6 seconds to under 1. Our conversion rate jumped 38% overnight.', rating: 5 },
-  ];
-  return (
-    <section className="py-32 px-6 border-t border-white/5 overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #030305 0%, #06091a 50%, #030305 100%)' }}>
-      {/* Orb glow */}
-      <div className="absolute -top-40 right-1/4 w-[600px] h-[600px] bg-indigo-600/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-500/8 blur-[100px] rounded-full pointer-events-none" />
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-20 text-center">
-          <div className="mb-4 inline-block rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-indigo-300">Reviews</div>
-          <h2 className="font-heading text-5xl sm:text-6xl font-black uppercase">
-            Trust Is <span className="text-transparent" style={{ WebkitTextStroke: '2px rgba(99,102,241,0.8)' }}>Earned</span>
-          </h2>
-          <p className="mt-4 text-gray-400 text-lg max-w-xl mx-auto">Real words from clients who bet on us and won.</p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {reviews.map((r, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-3xl border border-white/10 bg-gradient-to-br from-[#0a0a14] to-[#0d1020] p-8 hover:border-indigo-500/30 hover:shadow-[0_0_40px_rgba(99,102,241,0.08)] transition-all"
-            >
-              <div className="flex gap-1 mb-6">
-                {Array.from({ length: r.rating }).map((_, j) => (
-                  <span key={j} className="text-yellow-400 text-lg">★</span>
-                ))}
-              </div>
-              <p className="text-gray-300 leading-relaxed mb-8 text-lg italic">"{r.body}"</p>
-              <div className="flex items-center gap-4 border-t border-white/5 pt-6">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center font-bold text-white text-sm shadow-[0_0_15px_rgba(99,102,241,0.5)]">
-                  {r.name[0]}
-                </div>
-                <div>
-                  <div className="font-bold text-sm">{r.name}</div>
-                  <div className="text-xs text-gray-500">{r.role}</div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-
 const ClientsSection = () => {
   const clients = ['Ninja Park', 'The Metakey', 'MBS Logistics', 'PhysioCare', 'Crumblee', 'MA Electricals', 'FlexiPDF', 'BSM Platform'];
   return (
@@ -557,7 +340,7 @@ const ProcessSection = () => {
             <div className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary">How We Work</div>
             <h2 className="font-heading text-5xl sm:text-6xl font-black uppercase">Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Process</span></h2>
           </div>
-          <p className="text-gray-400 max-w-sm leading-relaxed">A transparent, results-driven workflow refined across 100+ enterprise projects.</p>
+          <p className="text-gray-400 max-w-sm leading-relaxed">A transparent, results-driven workflow from first call to launch.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, i) => (
@@ -634,11 +417,11 @@ export const Home = () => {
         <meta name="twitter:description" content="Elite software company in Bangalore specializing in custom web applications, native mobile apps, and technical SEO." />
       </Helmet>
       <Hero />
-      <StatsSection />
-      <BentoServicesSection />
+      <ServicesExplorer />
+      <WhyDevRise />
+      <SolutionBuilder3D />
       <CapabilitiesSection />
       <ProjectsCarousel />
-      <TestimonialsSection />
       <ClientsSection />
       <HowItWorks />
       <ProcessSection />

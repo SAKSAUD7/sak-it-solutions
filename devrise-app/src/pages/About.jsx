@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { HowItWorks } from '../components/HowItWorks';
+import { SolutionBuilder3D } from '../components/SolutionBuilder3D';
 import { ArrowRight, Code2, Globe2, Lightbulb, Users2 } from 'lucide-react';
 import CountUpModule from 'react-countup';
 const CountUp = CountUpModule.default || CountUpModule;
@@ -277,6 +278,7 @@ export const About = () => {
         </div>
       </section>
 
+      <SolutionBuilder3D />
     </motion.div>
   );
 };

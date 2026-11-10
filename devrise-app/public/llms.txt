@@ -1,0 +1,38 @@
+# 360 DevRise
+
+> 360 DevRise is a software development and digital marketing agency based in Bangalore, India. It builds websites, web applications, mobile apps, AI chatbots and business platforms, and runs SEO and paid advertising for businesses.
+
+- Website: https://360devrise.vercel.app/
+- Phone / WhatsApp: +91 74110 91256
+- Location: Bangalore, India
+
+## Services
+
+- [Static Websites](https://360devrise.vercel.app/services/web-static): Beautiful, lightning-fast websites for businesses, portfolios and landing pages.
+- [Dynamic Websites & Web Apps](https://360devrise.vercel.app/services/web-dynamic): Interactive websites with logins, dashboards, bookings, and real-time features.
+- [Enterprise Web Platforms](https://360devrise.vercel.app/services/web-enterprise): Scalable, secure SaaS products built for large teams and enterprise workloads.
+- [iOS App Development](https://360devrise.vercel.app/services/app-ios): Premium iPhone & iPad apps built natively with Swift for the Apple ecosystem.
+- [Android App Development](https://360devrise.vercel.app/services/app-android): Powerful Android apps reaching billions of users across all devices.
+- [Cross-Platform Mobile Apps](https://360devrise.vercel.app/services/app-crossplatform): One app, both iPhone & Android — built with React Native or Flutter.
+- [SEO & Search Rankings](https://360devrise.vercel.app/services/marketing-seo): Get your website found on Google and rank above your competitors.
+- [Social Media Marketing](https://360devrise.vercel.app/services/marketing-social): Grow your brand on Instagram, LinkedIn, and TikTok with scroll-stopping content.
+- [Google & Meta Paid Ads](https://360devrise.vercel.app/services/marketing-ads): High-ROI ad campaigns on Google, Facebook, and Instagram that drive real sales.
+- [WhatsApp AI Chatbots](https://360devrise.vercel.app/services/ai-whatsapp): Custom-trained AI agents for 24/7 automated customer support and lead generation.
+- [Business Process Automation](https://360devrise.vercel.app/services/ai-workflow): Connect your apps and eliminate manual tasks using smart automation tools.
+- [Custom Booking Systems](https://360devrise.vercel.app/services/platform-booking): High-performance scheduling platforms for clinics, salons, and consultants.
+- [E-Commerce Stores](https://360devrise.vercel.app/services/platform-ecommerce): Fast, beautiful online stores built on Shopify, WooCommerce or custom backends.
+- [Business Dashboard & CRM](https://360devrise.vercel.app/services/platform-dashboard): Custom management tools that replace expensive off-the-shelf software.
+
+## Common questions
+
+- How long does a project take? A marketing website takes 2-4 weeks. A web application or mobile app typically takes 6-16 weeks depending on scope.
+- Is there support after launch? Every project includes 30 days of post-launch support; monthly retainers are available.
+- How is pricing set? Fixed-price quotes for well-defined scopes, or time-and-materials for ongoing work. Estimates are free.
+- Who owns the code? The client owns the source code and intellectual property after completion and final payment.
+
+## Pages
+
+- [All services](https://360devrise.vercel.app/services)
+- [Portfolio](https://360devrise.vercel.app/work)
+- [About](https://360devrise.vercel.app/about)
+- [Contact](https://360devrise.vercel.app/contact)
